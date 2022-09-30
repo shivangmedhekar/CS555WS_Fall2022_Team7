@@ -12,7 +12,7 @@ def parse(GEDCOM_FILE):
 
     individuals, families = [], []
 
-    with open(GEDCOM_FILE, 'r') as file, open('output.txt', 'w') as output:
+    with open(GEDCOM_FILE, 'r') as file:
 
         lines = file.readlines()
         i = 0
