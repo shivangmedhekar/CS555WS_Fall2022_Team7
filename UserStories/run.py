@@ -1,4 +1,4 @@
-from user_stories import *
+from UserStories.user_stories import *
 
 def run_user_stories(individuals, families):
     """
@@ -57,7 +57,7 @@ def run_user_stories(individuals, families):
 
         # --------------------------- Divorce before death --------------------------- #
     
-    
+
         # -------------------------- Births Before Marriage -------------------------- #
         us02_error = False
         fams = individuals[indID].get_famsID()
