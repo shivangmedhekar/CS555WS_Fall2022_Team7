@@ -1,3 +1,4 @@
+from copyreg import constructor
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
@@ -10,6 +11,7 @@ class Individual:
     _birth = None
     _death = None
 
+    # -------------------------------- Constructor ------------------------------- #
     def __init__(self, indID, famcID, famsID, name, sex, birth, death):
         self._indID = indID
         self._famcID = famcID
@@ -19,9 +21,17 @@ class Individual:
         self._birth = birth
         self._death = death
 
-    # retrieving variables
+    # ---------------------------------------------------------------------------- #
+    #                             Retrieving Variables                             #
+    # ---------------------------------------------------------------------------- #
     def get_indID(self):
         return self._indID
+
+    def get_famsID(self):
+        return self._famsID
+
+    def get_famcID(self):
+        return self._famcID
 
     def get_name(self):
         return self._name
@@ -38,6 +48,9 @@ class Individual:
     def get_individual(self):
         return self._name, self._sex, self._birth, self._death, self._famsID, self._famcID
 
+    # ---------------------------------------------------------------------------- #
+    #                               Helper Functions                               #
+    # ---------------------------------------------------------------------------- #
     def get_age(self):
 
         diff = None
@@ -45,9 +58,9 @@ class Individual:
             diff = datetime.now()
 
         else:
-            diff = self.get_deathday
+            diff = self.get_deathday()
 
-        return relativedelta(datetime.now(), self.get_birthday())
+        return relativedelta(diff, self.get_birthday())
 
     def is_alive(self):
         if self.get_deathday() == None:

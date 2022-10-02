@@ -3,16 +3,15 @@ from dateutil.relativedelta import relativedelta
 from Classes.Individual import Individual
 from Classes.Family import Family
 
+# --------------------------------- Constants -------------------------------- #
 VALID_TAGS = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MARR',
             'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
-
 MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 
 
 def parse(GEDCOM_FILE):
 
     individuals, families = {}, {}
-
     with open(GEDCOM_FILE, 'r') as file:
 
         lines = file.readlines()
@@ -22,7 +21,8 @@ def parse(GEDCOM_FILE):
 
             level, tag = get_level_n_tag(lines[i])
 
-            if "INDI" in lines[i]:
+            # ------------------------- Parse through Individuals ------------------------ #
+            if "INDI" == tag:
                 indID = lines[i].split('@')[1]
                 famcID = []
                 famsID = []
@@ -40,22 +40,28 @@ def parse(GEDCOM_FILE):
                         i = i + 1
                         continue
                     
+                    #Parse out the famc id
                     if ("FAMC" == tag and level == "1"):
                         famcID.append(lines[i].split("@")[1])
 
+                    #Parse out the fams id
                     elif ("FAMS" == tag and level == "1"):
                         famsID.append(lines[i].split("@")[1])
                     
+                    #Parse out the name
                     elif ("NAME" == tag and level == "1"):
                         name = lines[i][7:len(lines[i]) - 1].replace("/", "").replace("\n", "")
                     
+                    #Parse out the sex
                     elif ("SEX" == tag and level == "1"):
                         sex = lines[i][6]
 
+                    #Parse out the birthday
                     elif ("BIRT" == tag and level == "1"):
                         i = i + 1
                         birth = parse_date(lines[i].replace("2 DATE ", ''))
 
+                    #Parse out the deathday
                     elif ("DEAT" == tag and level == "1"):
                         i = i + 1
                         death = parse_date(lines[i].replace("2 DATE ", ''))
@@ -65,9 +71,10 @@ def parse(GEDCOM_FILE):
 
                     i = i + 1
                 
-                individuals[indID] = (Individual(indID, famcID, famsID, name, sex, birth, death))
+                individuals[indID] = Individual(indID, famcID, famsID, name, sex, birth, death)
 
-            elif ("FAM" in lines[i] and "FAMC" not in lines[i] and "FAMS" not in lines[i]):
+            # -------------------------- Parse through famalies -------------------------- #
+            elif "FAM" == tag:
                 famID = lines[i].split("@")[1]
                 husband = None
                 wife = None
@@ -76,32 +83,38 @@ def parse(GEDCOM_FILE):
                 children = []
                 i = i + 1
                 while (True):
+
+                    level, tag = get_level_n_tag(lines[i])
                     
-                    if ("1 HUSB" in lines[i]):
+                    #Parse out the husband
+                    if ("HUSB" == tag and "1" == level):
                         husband = lines[i].split("@")[1]
+
                     #Parse out the wife
-                    elif ("1 WIFE" in lines[i]):
+                    elif ("WIFE" == tag and "1" == level):
                         wife = lines[i].split("@")[1]
+
                     #Parse out the marriage date
-                    elif ("1 MARR" in lines[i]):
+                    elif ("MARR" == tag and "1" == level):
                         i = i + 1
                         marriageDate = parse_date(lines[i].replace("2 DATE ", ''))
-                    elif ("DIV" in lines[i]):
+
+                    #Parse out the divorce date
+                    elif ("DIV" == tag):
                         i = i + 1
                         divorceDate = parse_date(lines[i].replace("2 DATE ", ''))
+
                     #Parse out the children
-                    elif ("1 CHIL" in lines[i]):
+                    elif ("CHIL" == tag and "1" == level):
                         children.append(lines[i].split("@")[1])
 
-                    elif ("0 TRLR" in lines[i]) or ("FAM" in lines[i] and "FAMC" not in lines[i] and "FAMS" not in lines[i]):
+                    elif ("TRLR" == tag and "0" == level) or ("FAM" == tag):
                         break
 
-                    if ("0 TRLR" in lines[i]):
-                        break
                     i = i + 1
-                families[famID] = (Family(famID, husband, wife, marriageDate, divorceDate, children))
+                families[famID] = Family(famID, husband, wife, marriageDate, divorceDate, children)
 
-            if "0 TRLR" in lines[i]:
+            if "TRLR" == tag and "0" == level:
                 break
 
             if "INDI" not in lines[i] and tag != "FAM":
@@ -109,7 +122,10 @@ def parse(GEDCOM_FILE):
     
     return individuals, families
 
-# Helper Functions
+
+# ---------------------------------------------------------------------------- #
+#                               Helper Functions                               #
+# ---------------------------------------------------------------------------- #
 
 def parse_date(date):
 
@@ -119,13 +135,7 @@ def parse_date(date):
         day, month, year = int(day), int(month), int(year)
 
         datetime_element = datetime(year, month, day)
-        
-        age = datetime.now() - datetime_element
-        #print(age)
-        date_1 = datetime(2022, 12, 2)
-        #print((datetime.now() - date_1).days)
-        difference_in_years = relativedelta(datetime.now(), datetime_element)
-        #print(difference_in_years.days)
+
         return datetime_element.date()
     except:
         print(date)
