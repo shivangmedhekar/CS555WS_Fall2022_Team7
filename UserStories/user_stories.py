@@ -5,6 +5,18 @@ from dateutil.relativedelta import relativedelta
 #                       US 01: Dates before current date                       #
 # ---------------------------------------------------------------------------- #
 def dates_before_current_date(date, type):
+    """
+    run_user_stories runs all functions in user_stories.py on individuals and famalies in the GEDCOM file
+
+    Args:
+
+        param1 (list): individuals: Is a list of class objects Individual
+        param2 (list): families: Is a list of class objects Family
+    
+    Returns: 
+        (list) logs: It returns list of logs which include erros and successful runs of each user story
+        
+    """ 
 
     if not date and type == "Deathday":
         return True
@@ -24,6 +36,18 @@ def dates_before_current_date(date, type):
 #                         US 02: Birth before marriage                         #
 # ---------------------------------------------------------------------------- #
 def birth_before_marriage(birthday, marriageDate):
+    """
+    birth_before_marriage 
+
+    Args:
+
+        param1 (datetime.date()): birthday: It is a the birthday of a individual
+        param2 (datetime.date()): marriageDate: It is the marriage date of the individual from the family table
+    
+    Returns: 
+        (bool) : 
+        (Exception)
+    """ 
 
     if not marriageDate or not birthday:
         return
