@@ -10,6 +10,16 @@ MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", 
 
 
 def parse(GEDCOM_FILE):
+    """
+    parse functions parses through the GEDCOM file and extracts important components from it and
+    put it to a list of objects which are Individual and Families
+
+    Args:
+        param1 (String): GEDCOM_FILE: Is a list of class objects Individual
+    
+    Returns: 
+        (list, list): It returns two list of class objects individuals and families
+    """
 
     individuals, families = {}, {}
     with open(GEDCOM_FILE, 'r') as file:
@@ -128,6 +138,15 @@ def parse(GEDCOM_FILE):
 # ---------------------------------------------------------------------------- #
 
 def parse_date(date):
+    """
+    parse_date function take the format used in GEDCOM files and turns it into datetime format
+
+    Args:
+        param1 (String): date: It a string of Day Month Year
+    
+    Returns: 
+        (datetime.date()): It returns the date of the datetime object
+    """
 
     try: 
         day, month, year = date.split(" ")
@@ -143,6 +162,15 @@ def parse_date(date):
 
 
 def get_level_n_tag(line):
+    """
+    get_level_n_tag takes file line of type string and extracts level and tag
+
+    Args:
+        param1 (String): line: It is file line of type string
+    
+    Returns: 
+        (Int, String): (level, tag): It returns level and tag extracted from the line
+    """
     
     line = line.replace('\n','')
     lineList = line.split(' ')
