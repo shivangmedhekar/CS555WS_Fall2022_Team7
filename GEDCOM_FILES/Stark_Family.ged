@@ -172,18 +172,6 @@
 1 BIRT
 2 DATE 4 MAR 1990
 1 FAMC @F3@
-0 @I17@ INDI
-1 NAME /Lannister/
-2 SURN Lannister
-2 _MARNM Lannister
-1 SEX M
-1 FAMS @F5@
-0 @I18@ INDI
-1 NAME /Lannister/
-2 SURN Lannister
-2 _MARNM Lannister
-1 SEX F
-1 FAMS @F5@
 0 @I19@ INDI
 1 NAME Tommen /Stark/
 2 GIVN Tommen

@@ -17,6 +17,8 @@ def dates_before_current_date(date, type):
         (list) logs: It returns list of logs which include erros and successful runs of each user story
         
     """ 
+    if not date and (type == "Marriage" or type == "Divorce"):
+        return True
 
     if not date and type == "Deathday":
         return True
@@ -49,8 +51,15 @@ def birth_before_marriage(birthday, marriageDate):
         (Exception)
     """ 
 
-    if not marriageDate or not birthday:
-        return
+    if not marriageDate and not birthday:
+        return True
+
+    if not marriageDate and birthday:
+        return True
+
+    if not birthday and marriageDate:
+        raise Exception("Has Marriage date but no Birthday")
+    
     
     if (marriageDate - birthday).days >= 0:
         return True
@@ -62,8 +71,13 @@ def birth_before_marriage(birthday, marriageDate):
 #                           US 03: Birth before death                          #
 # ---------------------------------------------------------------------------- #
 def birth_before_death(birth, death):
-    if not death or not birth:
-        return None
+    if not death and not birth:
+        return True
+    if not death and birth:
+        return True
+
+    if not birth and death:
+        raise Exception("Has deathday but no birthday")
 
     if (death - birth).days >= 0:
         return True
@@ -77,8 +91,15 @@ def birth_before_death(birth, death):
 def marriage_before_divorce(marriageDate, divorceDate):
 
     # if the marriage date & divorce date are empty/null
-    if not marriageDate or not divorceDate:
-        return None
+    if not marriageDate and not divorceDate:
+        return True
+
+    if not divorceDate and marriageDate:
+        return True
+
+    if not marriageDate and divorceDate:
+        raise Exception("Has divorce date but no marriage date")
+
     
     # if the divorce date is after the marriage date
     if (divorceDate - marriageDate).days >= 0:
@@ -96,7 +117,9 @@ def marriage_before_death(marriageDate, deathDate):
 
     # if the marriage date & death date are empty/null
     if not marriageDate or not deathDate:
-        return None
+        return True
+
+
     
     # if the death date is after the marriage date
     if (deathDate - marriageDate).days >= 0:
@@ -112,7 +135,7 @@ def marriage_before_death(marriageDate, deathDate):
 # ---------------------------------------------------------------------------- #
 def divorce_before_death(divorce, death):
     if not divorce or not death:
-        return None
+        return True
 
     if (death - divorce).days >= 0:
         return True
@@ -125,7 +148,10 @@ def divorce_before_death(divorce, death):
 # ---------------------------------------------------------------------------- #
 def less_then_150_years_old(age):
 
-    if not age or type(age) is not int:
+    if not age:
+        return True
+
+    if type(age) is not int:
         raise ValueError("Age is not type Integer")
 
     age = int(str(age))
