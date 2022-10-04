@@ -47,17 +47,58 @@ def run_user_stories(individuals, families):
             logs.append("Successful: US07")
 
         # ---------------------------- Birth before death ---------------------------- #
+        us03_error = False
+        try:
+            birth_before_death(birth, death)
+        except (Exception, ValueError) as e:
+            us03_error = True
+            logs.append("ERROR: INDIVIDUAL: US03: {}: {}".format(indID,e))
 
-
+        if not us03_error:
+            logs.append("Successful: US03")
+        
         # -------------------------- Marriage before divorce ------------------------- #
+        us04_error = False
+        fams = individuals[indID].get_famsID()
+        for fam in fams:
+            try:
+                marriage = families[fam].get_marriage_date()
+                divorce = families[fam].get_divorce_date()
+                marriage_before_divorce(marriage, divorce)
+            except (Exception, ValueError) as e:
+                us04_error = True
+                logs.append("ERROR: INDIVIDUAL: US04: {}: {}".format(indID,e))
 
+        if not us04_error:
+            logs.append("Successful: US04")
 
         # --------------------------- Marriage before death -------------------------- #
+        us05_error = False
+        fams = individuals[indID].get_famsID()
+        for fam in fams:
+            try:
+                marriage = families[fam].get_marriage_date()
+                marriage_before_death(marriage, death)
+            except (Exception, ValueError) as e:
+                us05_error = True
+                logs.append("ERROR: INDIVIDUAL: US05: {}: {}".format(indID,e))
 
+        if not us05_error:
+            logs.append("Successful: US05")
 
         # --------------------------- Divorce before death --------------------------- #
-    
+        us06_error = False
+        fams = individuals[indID].get_famsID()
+        for fam in fams:
+            try:
+                divorce = families[fam].get_divorce_date()
+                divorce_before_death(divorce, death)
+            except (Exception, ValueError) as e:
+                us06_error = True
+                logs.append("ERROR: INDIVIDUAL: US06: {}: {}".format(indID,e))
 
+        if not us06_error:
+            logs.append("Successful: US06")
         # -------------------------- Births Before Marriage -------------------------- #
         us02_error = False
         fams = individuals[indID].get_famsID()
