@@ -160,3 +160,50 @@ def less_then_150_years_old(age):
         return True
     else:
         raise Exception("Greater then 150 years old")
+
+
+def no_bigamy(fams, individuals, families):
+    if len(fams) <= 1:
+        
+        return True
+    
+    marriage_count = 0
+
+    for famID in fams:
+
+        husbID = families[famID].get_husband()
+        wifeID = families[famID].get_wife()
+        marriage = families[famID].get_marriage_date()
+        divorce = families[famID].get_divorce_date()
+
+        husband_is_alive = individuals[husbID].is_alive()
+        wife_is_alive = individuals[wifeID].is_alive()
+        
+        if (marriage and divorce) and (husband_is_alive and wife_is_alive):
+            marriage_count += 1
+        
+        if marriage_count > 1:
+            return False
+        
+    return True
+
+def siblings_spacing(children, individuals):
+    
+    if len(children) <= 1:
+        return True
+
+    birthdays = []
+    for child in children:
+        birth = individuals[child].get_birthday()
+        birthdays.append(birth)
+
+    birthdays.sort()
+
+    for i in range(len(birthdays) - 1):
+        diff = relativedelta(birthdays[i + 1], birthdays[i])
+        diff_months = (diff.years * 12) + diff.months
+        
+        if diff_months < 8 and diff.days > 2:
+            return False
+        
+    return True
