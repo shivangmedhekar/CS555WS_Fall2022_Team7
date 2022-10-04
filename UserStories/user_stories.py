@@ -62,7 +62,13 @@ def birth_before_marriage(birthday, marriageDate):
 #                           US 03: Birth before death                          #
 # ---------------------------------------------------------------------------- #
 def birth_before_death(birth, death):
-    pass
+    if not death or not birth:
+        return None
+
+    if (death - birth).days >= 0:
+        return True
+    else:
+        raise Exception("Birthday {} is after death {}".format(str(birth),str(death)))
 
 
 # ---------------------------------------------------------------------------- #
@@ -83,7 +89,13 @@ def marriage_before_death(marriage, death):
 #                          US 06: Divorce before death                         #
 # ---------------------------------------------------------------------------- #
 def divorce_before_death(divorce, death):
-    pass
+    if not divorce or not death:
+        return None
+
+    if (death - divorce).days >= 0:
+        return True
+    else:
+        raise Exception("Divorce {} is after death {}".format(str(divorce),str(death)))
 
 
 # ---------------------------------------------------------------------------- #

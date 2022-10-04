@@ -36,4 +36,6 @@ Families
 User Stories Logs
 Successful: US01
 Successful: US07
+Successful: US03
+Successful: US06
 Successful: US02
