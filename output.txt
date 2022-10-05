@@ -18,8 +18,6 @@ Indiviudals
 | I14 | Myrecella Lannister |   F    | 2009-09-07 |  0  | False |    None    | ['F4'] |      NA      |
 | I15 |   Rhegor Targaryen  |   M    | 1960-07-12 |  29 |  True | 1990-04-06 |   NA   |    ['F3']    |
 | I16 |    John Targaryen   |   M    | 1990-03-04 |  0  | False |    None    | ['F3'] |      NA      |
-| I17 |      Lannister      |   M    |    None    |  0  | False |    None    |   NA   |    ['F5']    |
-| I18 |      Lannister      |   F    |    None    |  0  | False |    None    |   NA   |    ['F5']    |
 | I19 |     Tommen Stark    |   M    | 2011-05-06 |  0  | False |    None    | ['F4'] |      NA      |
 +-----+---------------------+--------+------------+-----+-------+------------+--------+--------------+
 Families
@@ -30,126 +28,6 @@ Families
 | F2 |   None  |   None   |     I4     |   Eddard Stark   |    I7   |   Catyeln Tully   | ['I8', 'I9', 'I10', 'I11', 'I12'] |
 | F4 |   None  |   None   |    I13     | Jammie Lannister |    I7   |   Catyeln Tully   |           ['I14', 'I19']          |
 | F3 |   None  |   None   |    I15     | Rhegor Targaryen |    I6   |    Lyanna Stark   |              ['I16']              |
-| F5 |   None  |   None   |    I17     |    Lannister     |   I18   |     Lannister     |              ['I13']              |
 +----+---------+----------+------------+------------------+---------+-------------------+-----------------------------------+
 
 User Stories Logs
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02
-Successful: US01
-Successful: US07
-Successful: US03
-Successful: US04
-Successful: US05
-Successful: US06
-Successful: US02

@@ -1,5 +1,6 @@
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
+from functools import lru_cache
+
 from Classes.Individual import Individual
 from Classes.Family import Family
 
@@ -8,7 +9,7 @@ VALID_TAGS = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MAR
             'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
 MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 
-
+@lru_cache
 def parse(GEDCOM_FILE):
     """
     parse functions parses through the GEDCOM file and extracts important components from it and
