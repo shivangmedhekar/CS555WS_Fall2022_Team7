@@ -7,8 +7,6 @@ def marriage_before_death(marriageDate, deathDate):
     if not marriageDate or not deathDate:
         return True
 
-
-    
     # if the death date is after the marriage date
     if (deathDate - marriageDate).days >= 0:
         return True

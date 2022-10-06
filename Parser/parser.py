@@ -6,8 +6,11 @@ from Classes.Family import Family
 
 # --------------------------------- Constants -------------------------------- #
 VALID_TAGS = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MARR',
-            'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
-MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+              'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
+
+MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+
 
 @lru_cache
 def parse(GEDCOM_FILE):
@@ -167,10 +170,10 @@ def get_level_n_tag(line):
     get_level_n_tag takes file line of type string and extracts level and tag
 
     Args:
-        param1 (String): line: It is file line of type string
-    
-    Returns: 
-        (Int, String): (level, tag): It returns level and tag extracted from the line
+        line (String): It is file line of type string
+
+    Returns:
+        (Int, String): It returns level and tag extracted from the line
     """
     
     line = line.replace('\n','')

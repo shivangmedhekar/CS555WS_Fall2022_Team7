@@ -2,18 +2,19 @@
 #                         US 02: Birth before marriage                         #
 # ---------------------------------------------------------------------------- #
 def birth_before_marriage(birthday, marriageDate):
-    """
-    birth_before_marriage 
+    """_summary_
 
     Args:
+        birthday (datetime.date()): _description_
+        marriageDate (datetime.date() or None): _description_
 
-        param1 (datetime.date()): birthday: It is a the birthday of a individual
-        param2 (datetime.date()): marriageDate: It is the marriage date of the individual from the family table
-    
-    Returns: 
-        (bool) : 
-        (Exception)
-    """ 
+    Raises:
+        Exception: _description_
+        Exception: _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     if not marriageDate and not birthday:
         return True
