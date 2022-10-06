@@ -1,4 +1,3 @@
-from copyreg import constructor
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
@@ -53,16 +52,12 @@ class Individual:
     # ---------------------------------------------------------------------------- #
     def get_age(self):
 
-        diff = None
-        if self.get_deathday == None:
-            diff = datetime.now()
-
-        else:
-            diff = self.get_deathday()
-
-        return relativedelta(diff, self.get_birthday())
+        diff = datetime.now() if (self.get_deathday == None) else self.get_deathday()
+        age = relativedelta(diff, self.get_birthday())
+        return age
 
     def is_alive(self):
+        
         if self.get_deathday() == None:
             return False
         else:

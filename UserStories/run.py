@@ -114,4 +114,13 @@ def run_user_stories(individuals, families):
         if not us02_error:
             logs.append("Successful: US02")
 
-        return logs
+        # --------------------------------- No Bigamy -------------------------------- #
+
+        fams = individuals[indID].get_famsID()
+
+        no_bigamy(fams, individuals, families)
+
+    
+    for famID in families:
+        siblings_spacing(families[famID].get_children(), individuals)
+    return logs

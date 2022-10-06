@@ -1,4 +1,4 @@
-def summary(individuals_table, families_table, logs):
+def summary(individuals_table, families_table):
     """
     summary prints and writes to output.txt the PrettyTables of individual and famalilies and 
     also logs or errors and successful runs of user stories.
@@ -20,8 +20,6 @@ def summary(individuals_table, families_table, logs):
     print(families_table)
 
     print("\nUser Story Logs")
-    for log in logs:
-        print(log)
 
     with open("output.txt", "w") as output_file:
         
@@ -32,6 +30,6 @@ def summary(individuals_table, families_table, logs):
         output_file.write(str(families_table))
         
         output_file.write("\n\nUser Stories Logs\n")
-        for log in logs:
-            output_file.write(log)
-            output_file.write("\n")
+        # for log in logs:
+        #     output_file.write(log)
+        #     output_file.write("\n")
