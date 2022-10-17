@@ -2,8 +2,12 @@ import unittest
 
 from UserStories.us04 import marriage_before_divorce
 from Parser.parser import parse
+from write_errors import write_errors
 
 from config import GEDCOM_FILE
+
+USER_STORY = "US04"
+type = "INDIVIDUAL"
 
 individuals, families = parse(GEDCOM_FILE)
 

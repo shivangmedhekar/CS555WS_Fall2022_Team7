@@ -2,6 +2,20 @@
 #                        US 04: Marriage before divorce                        #
 # ---------------------------------------------------------------------------- #
 def marriage_before_divorce(marriageDate, divorceDate):
+    """
+    Marriage should occur before divorce of spouses, and divorce can only occur after marriage
+
+    Args:
+        marriageDate (datetime.date()): _description_
+        divorceDate (datetime.date()): _description_
+
+    Raises:
+        Exception: _description_
+        Exception: _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     # if the marriage date & divorce date are empty/null
     if not marriageDate and not divorceDate:

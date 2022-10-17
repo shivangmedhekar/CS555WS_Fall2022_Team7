@@ -1,9 +1,11 @@
 # ---------------------------------------------------------------------------- #
 #                           US 03: Birth before death                          #
 # ---------------------------------------------------------------------------- #
-def birth_before_death(birth, death):
+
+from datetime import datetime
+def birth_before_death(birth: datetime.date, death: datetime.date) -> bool:
     """
-    This functions checks if birthday of an individual is before their death day
+    Birth should occur before death of an individual
 
     Args:
         birth (datetime.date()): birthday of an individual

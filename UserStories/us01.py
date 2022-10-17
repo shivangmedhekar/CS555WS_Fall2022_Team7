@@ -1,20 +1,23 @@
-from datetime import datetime
 # ---------------------------------------------------------------------------- #
 #                       US 01: Dates before current date                       #
 # ---------------------------------------------------------------------------- #
-def dates_before_current_date(date, type):
+
+from datetime import datetime
+def dates_before_current_date(date: datetime.date, type: str) -> bool: 
     """
-    run_user_stories runs all functions in user_stories.py on individuals and famalies in the GEDCOM file
+    Dates (birth, marriage, divorce, death) should not be after the current date
 
     Args:
+        date (datetime.date): _description_
+        type (str): _description_
 
-        param1 (list): individuals: Is a list of class objects Individual
-        param2 (list): families: Is a list of class objects Family
-    
-    Returns: 
-        (list) logs: It returns list of logs which include erros and successful runs of each user story
-        
-    """ 
+    Raises:
+        Exception: _description_
+        Exception: _description_
+
+    Returns:
+        bool: _description_
+    """
     if not date and (type == "Marriage" or type == "Divorce"):
         return True
 
