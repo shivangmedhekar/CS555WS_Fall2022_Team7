@@ -1,6 +1,9 @@
 from prettytable import PrettyTable
 
-def getTables(individuals, families):
+from Classes.Individual import Individual
+from Classes.Family import Family
+
+def getTables(individuals: list[Individual], families: list[Family]) -> tuple[PrettyTable, PrettyTable]:
     """
     getTables makes PrettyTables objects for individuals and famalies
 

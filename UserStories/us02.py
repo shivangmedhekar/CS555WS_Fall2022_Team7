@@ -1,19 +1,22 @@
 # ---------------------------------------------------------------------------- #
 #                         US 02: Birth before marriage                         #
 # ---------------------------------------------------------------------------- #
-def birth_before_marriage(birthday, marriageDate):
-    """_summary_
+
+from datetime import datetime
+def birth_before_marriage(birthday: datetime.date, marriageDate: datetime.date) -> bool:
+    """
+    Birth should occur before marriage of an individual
 
     Args:
-        birthday (datetime.date()): _description_
-        marriageDate (datetime.date() or None): _description_
+        birthday (datetime.date): _description_
+        marriageDate (datetime.date): _description_
 
     Raises:
         Exception: _description_
         Exception: _description_
 
     Returns:
-        _type_: _description_
+        bool: _description_
     """
 
     if not marriageDate and not birthday:
@@ -24,7 +27,6 @@ def birth_before_marriage(birthday, marriageDate):
 
     if not birthday and marriageDate:
         raise Exception("Has Marriage date but no Birthday")
-    
     
     if (marriageDate - birthday).days >= 0:
         return True

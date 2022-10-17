@@ -1,8 +1,9 @@
 from Parser.parser import parse
 from Summary.tables import getTables
-#from UserStories.run import run_user_stories
+
 from Summary.summary import summary
 from TestFiles.run_unittest import run_all_tests
+
 from config import GEDCOM_FILE
 
 def main():

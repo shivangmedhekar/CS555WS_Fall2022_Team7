@@ -6,11 +6,10 @@ from write_errors import write_errors
 
 from config import GEDCOM_FILE
 
-error_message_ind = "ERROR: INDIVIDUAL:"
+type = "INDIVIDUAL"
+USER_STORY = 'US01'
 
 individuals, families = parse(GEDCOM_FILE)
-
-USER_STORY = 'US01'
 
 class Test_dates_before_current_date(unittest.TestCase):
     
@@ -22,14 +21,14 @@ class Test_dates_before_current_date(unittest.TestCase):
             death = individuals[indID].get_deathday()
 
             try:
-                self.assertTrue(dates_before_current_date(birth, type="Birthday"))
+                self.assertTrue(dates_before_current_date(date = birth, type = "Birthday"))
             except Exception as e:
-                write_errors(f'{error_message_ind}: {USER_STORY}: {indID}: {e}')
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
             
             try:
-                self.assertTrue(dates_before_current_date(death, type="Deathday"))
+                self.assertTrue(dates_before_current_date(date = death, type = "Deathday"))
             except Exception as e:
-                write_errors(f'{error_message_ind}: {USER_STORY}: {indID}: {e}')
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
 
 
             fams = individuals[indID].get_famsID()
@@ -39,11 +38,11 @@ class Test_dates_before_current_date(unittest.TestCase):
                 divorce = families[fam].get_divorce_date()
 
                 try:
-                    self.assertTrue(dates_before_current_date(marriage, type="Marriage"))
+                    self.assertTrue(dates_before_current_date(date=marriage, type="Marriage"))
                 except Exception as e:
-                    write_errors(f'{error_message_ind}: {USER_STORY}: {indID}: {e}')
+                    write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
 
                 try:
-                    self.assertTrue(dates_before_current_date(divorce, type="Divorce"))
+                    self.assertTrue(dates_before_current_date(date=divorce, type="Divorce"))
                 except Exception as e:
-                    write_errors(f'{error_message_ind}: {USER_STORY}: {indID}: {e}')
+                    write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
