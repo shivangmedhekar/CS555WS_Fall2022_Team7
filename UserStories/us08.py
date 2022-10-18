@@ -1,20 +1,32 @@
-from datetime import datetime
+from Classes.Individual import Individual
+from Classes.Family import Family
+from typing import List, Dict
 
-def birth_before_marriage_of_parents(birthdays, marriage):
+def no_children_without_marriage(IDList: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
+    """
+    children should not occur before 9 months since marriage and after 9 months of devorce
+    Args:
+        fams (list): list of families the individual is a spouse
+        individuals (dict): dict of individuals {indID: []}
+        families (dict): dict of families {famID: []}
+    Returns:
+        bool: True if no_children_without_marriage else False
+    """
 
-    if len(birthdays) == 0 or not marriage:
-        return None
+    for ID in IDList:
 
-    errors = []
-    for childDate in birthdays:
-        # if not date or not marriage:
-        #     return None
-        if (childDate - marriage).days >= 0:
-            pass
-        else:
-            errors.append("marriage {} is after chidren born {}".format(str(marriage, str(childDate))))
+        wifeID = families[ID].get_wife()
+        marr = individuals[wifeID].get_marriage_date()
+        divo = individuals[wifeID].get_divorce_date()
+        childID = families[ID].get_children()
 
-    if len(errors):
-        return errors
-    else:
-        return True
+        for child in childID:
+            child_birth = individuals[child].get_birthday()
+
+            if ((child_birth-marr).days > 30*9):
+                raise Exception(f"Divorce date:{marr} should be 9 months before Child birth date:{child_birth}")
+
+            if ((divo-child_birth).days < 30*9):
+                raise Exception(f"Divorce date:{marr} should be 9 months before Child Birth date:{child_birth}")
+        
+    return True
