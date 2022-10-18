@@ -17,14 +17,14 @@ def no_children_without_marriage(IDList: List[str], individuals: List[Dict[str, 
     for ID in IDList:
 
         marr = families[ID].get_marriage_date()
-        marr = datetime(marr).date()
         divo = families[ID].get_divorce_date()
-        divo = datetime(divo).date()
         childID = families[ID].get_children()
+        
+        if not marr or not divo:
+            return True
 
         for child in childID:
             child_birth = individuals[child].get_birthday()
-            child_birth = datetime(child_birth).date()
 
             if ((child_birth-marr).days > 30*9):
                 raise Exception(f"Divorce date:{marr} should be 9 months before Child birth date:{child_birth}")
