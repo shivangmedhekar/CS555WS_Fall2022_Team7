@@ -20,7 +20,7 @@ def marriage_after_14(fams: List[str], individuals: List[Dict[str, Individual]],
 
         husbID = families[famID].get_husband()
         wifeID = families[famID].get_wife()
-        marriage = families[famID].get_marriage_date()
+        marriage = families[famID].get_marriage_day()
         wifeBirth = individuals[wifeID].get_birthdate()
         husbBirth = individuals[husbID].get_children()
 
