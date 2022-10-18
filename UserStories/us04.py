@@ -25,7 +25,7 @@ def marriage_before_divorce(marriageDate, divorceDate):
         return True
 
     if not marriageDate and divorceDate:
-        raise Exception("Has divorce date but no marriage date")
+        raise Exception("Has divorce date but no marriage date ")
 
     
     # if the divorce date is after the marriage date
