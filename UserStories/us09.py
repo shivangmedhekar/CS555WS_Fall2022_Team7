@@ -18,9 +18,9 @@ def child_birth_before_parents_death(IDList: List[str], individuals: List[Dict[s
 
         husbID = families[ID].get_husband()
         wifeID = families[ID].get_wife()
-        WifeDeath = individuals[wifeID].get_deathdate()
+        WifeDeath = individuals[wifeID].get_deathday()
         WifeDeath = datetime(WifeDeath).date()
-        HusbDeath = individuals[husbID].get_deathdate()
+        HusbDeath = individuals[husbID].get_deathday()
         HusbDeath = datetime(HusbDeath).date()
         childID = families[ID].get_children()
 
