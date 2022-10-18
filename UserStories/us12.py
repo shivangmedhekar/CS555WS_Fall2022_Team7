@@ -28,9 +28,9 @@ def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[st
 
         for child in childID:
             childbirth = individuals[child].get_birthday()
-            if((wifeBirth-childbirth).days < 365*60):
+            if((wifeBirth-childbirth).days > 365*60):
                 raise Exception(f"The age difference between mother and son should be less than 60 years.")
-            if((husbBirth-childbirth).days < 365*80):
+            if((husbBirth-childbirth).days > 365*80):
                 raise Exception(f"The age difference between father and son should be less than 80 years.")
         
     return True 

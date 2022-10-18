@@ -5,7 +5,7 @@ from datetime import datetime
 
 def child_birth_before_parents_death(IDList: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
     """
-    children should not occur before 9 months since marriage and after 9 months of devorce
+    Child should be born before death of mother and before 9 months after death of father
     Args:
      IDList (list): a list of families in which the individual is married.
      individuals (dict): individuals dict indID: []
@@ -19,16 +19,18 @@ def child_birth_before_parents_death(IDList: List[str], individuals: List[Dict[s
         husbID = families[ID].get_husband()
         wifeID = families[ID].get_wife()
         WifeDeath = individuals[wifeID].get_deathday()
-        WifeDeath = datetime(WifeDeath).date()
         HusbDeath = individuals[husbID].get_deathday()
-        HusbDeath = datetime(HusbDeath).date()
+        
+        if not HusbDeath or not WifeDeath:
+            return True
+        
         childID = families[ID].get_children()
 
         for child in childID:
             child_birth = individuals[child].get_birthday()
-            child_birth = datetime(child_birth).date()
-
-            if ((HusbDeath-child_birth).days < 30*9):
+            
+            
+            if ((child_birth - HusbDeath).days > 30*9):
                 raise Exception(f"Father death date:{HusbDeath} should be 9 months before Child birth date:{child_birth}")
 
             if ((WifeDeath-child_birth).days < 0):

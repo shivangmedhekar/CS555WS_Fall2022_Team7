@@ -20,9 +20,11 @@ def marriage_after_14(fams: List[str], individuals: List[Dict[str, Individual]],
 
         husbID = families[famID].get_husband()
         wifeID = families[famID].get_wife()
-        marriage = families[famID].get_marriage_day()
+        marriage = families[famID].get_marriage_date()
+        if marriage == None:
+            return True
         wifeBirth = individuals[wifeID].get_birthday()
-        husbBirth = individuals[husbID].get_children()
+        husbBirth = individuals[husbID].get_birthday()
 
         if((marriage-wifeBirth).days < 14 or (marriage-husbBirth).days < 14):
             raise Exception(f"marriage should be 14 years after birth")
