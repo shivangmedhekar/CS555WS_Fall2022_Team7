@@ -142,7 +142,6 @@
 1 BIRT
 2 DATE 6 APR 1980
 1 FAMS @F4@
-1 FAMC @F5@
 0 @I14@ INDI
 1 NAME Myrecella /Lannister/
 2 GIVN Myrecella
@@ -172,18 +171,6 @@
 1 BIRT
 2 DATE 4 MAR 1990
 1 FAMC @F3@
-0 @I17@ INDI
-1 NAME /Lannister/
-2 SURN Lannister
-2 _MARNM Lannister
-1 SEX M
-1 FAMS @F5@
-0 @I18@ INDI
-1 NAME /Lannister/
-2 SURN Lannister
-2 _MARNM Lannister
-1 SEX F
-1 FAMS @F5@
 0 @I19@ INDI
 1 NAME Tommen /Stark/
 2 GIVN Tommen
@@ -223,12 +210,6 @@
 1 HUSB @I15@
 1 WIFE @I6@
 1 CHIL @I16@
-1 _CURRENT Y
-1 _PRIMARY Y
-0 @F5@ FAM
-1 HUSB @I17@
-1 WIFE @I18@
-1 CHIL @I13@
 1 _CURRENT Y
 1 _PRIMARY Y
 0 TRLR

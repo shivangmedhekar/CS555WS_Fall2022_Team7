@@ -1,24 +1,29 @@
 from datetime import datetime
-from dateutil.relativedelta import relativedelta
+from functools import lru_cache
+
 from Classes.Individual import Individual
 from Classes.Family import Family
+from typing import List, Dict
 
 # --------------------------------- Constants -------------------------------- #
 VALID_TAGS = ['INDI', 'NAME', 'SEX', 'BIRT', 'DEAT', 'FAMC', 'FAMS', 'FAM', 'MARR',
-            'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
-MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+              'HUSB', 'WIFE', 'CHIL', 'DIV', 'DATE', 'HEAD', 'TRLR', 'NOTE']
+
+MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+          "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
 
 
-def parse(GEDCOM_FILE):
+@lru_cache
+def parse(GEDCOM_FILE: str) -> tuple[List[Dict[str, Individual]], List[Dict[str, Family]]]:
     """
     parse functions parses through the GEDCOM file and extracts important components from it and
     put it to a list of objects which are Individual and Families
 
     Args:
-        param1 (String): GEDCOM_FILE: Is a list of class objects Individual
-    
-    Returns: 
-        (list, list): It returns two list of class objects individuals and families
+        GEDCOM_FILE (str): _description_
+
+    Returns:
+        tuple[List[Dict[str, Individual]], List[Dict[str, Family]]]: _description_
     """
 
     individuals, families = {}, {}
@@ -137,15 +142,15 @@ def parse(GEDCOM_FILE):
 #                               Helper Functions                               #
 # ---------------------------------------------------------------------------- #
 
-def parse_date(date):
+def parse_date(date: str) -> datetime.date:
     """
     parse_date function take the format used in GEDCOM files and turns it into datetime format
 
     Args:
-        param1 (String): date: It a string of Day Month Year
-    
-    Returns: 
-        (datetime.date()): It returns the date of the datetime object
+        date (str): _description_
+
+    Returns:
+        datetime.date: _description_
     """
 
     try: 
@@ -161,15 +166,15 @@ def parse_date(date):
         return None
 
 
-def get_level_n_tag(line):
+def get_level_n_tag(line: str) -> tuple[int, str]:
     """
     get_level_n_tag takes file line of type string and extracts level and tag
 
     Args:
-        param1 (String): line: It is file line of type string
-    
-    Returns: 
-        (Int, String): (level, tag): It returns level and tag extracted from the line
+        line (String): It is file line of type string
+
+    Returns:
+        (Int, String): It returns level and tag extracted from the line
     """
     
     line = line.replace('\n','')
