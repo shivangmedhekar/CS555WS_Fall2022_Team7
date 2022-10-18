@@ -21,8 +21,8 @@ def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[st
 
         husbID = families[famID].get_husband()
         wifeID = families[famID].get_wife()
-        wifeBirth = individuals[wifeID].get_birthdate()
-        husbBirth = individuals[husbID].get_birthdat()
+        wifeBirth = individuals[wifeID].get_birthday()
+        husbBirth = individuals[husbID].get_birthday()
         childID = families[famID].get_children()
 
 
