@@ -1,0 +1,33 @@
+Indiviudals
++-----+---------------------+--------+------------+-----+-------+------------+--------+--------------+
+|  ID |         Name        | Gender |  Birthday  | Age | Alive |   Death    | Child  |    Spouse    |
++-----+---------------------+--------+------------+-----+-------+------------+--------+--------------+
+|  I1 |    Richard Stark    |   M    | 1936-04-08 |  45 |  True | 1982-03-06 |   NA   |    ['F1']    |
+|  I2 |  Layarra Targaryen  |   F    | 1940-07-08 |  53 |  True | 1993-10-07 |   NA   |    ['F1']    |
+|  I3 |    Brandon Stark    |   M    | 1961-04-06 |  28 |  True | 1989-07-02 | ['F1'] |      NA      |
+|  I4 |     Eddard Stark    |   M    | 1964-06-06 |  41 |  True | 2005-07-05 | ['F1'] |    ['F2']    |
+|  I5 |     Benjen Stark    |   M    | 1968-09-20 |  0  | False |    None    | ['F1'] |      NA      |
+|  I6 |     Lyanna Stark    |   F    | 1970-11-09 |  19 |  True | 1990-08-06 | ['F1'] |    ['F3']    |
+|  I7 |    Catyeln Tully    |   F    | 1970-06-06 |  0  | False |    None    |   NA   | ['F2', 'F4'] |
+|  I8 |      Rob Stark      |   M    | 1990-05-07 |  0  | False |    None    | ['F2'] |      NA      |
+|  I9 |     Sansa Stark     |   F    | 1993-11-28 |  0  | False |    None    | ['F2'] |      NA      |
+| I10 |      Arya Stark     |   F    | 1995-02-28 |  0  | False |    None    | ['F2'] |      NA      |
+| I11 |      Bran Stark     |   M    | 1998-03-08 |  0  | False |    None    | ['F2'] |      NA      |
+| I12 |     Rickon Stark    |   M    | 2000-10-06 |  0  | False |    None    | ['F2'] |      NA      |
+| I13 |   Jammie Lannister  |   M    | 1980-04-06 |  0  | False |    None    |   NA   |    ['F4']    |
+| I14 | Myrecella Lannister |   F    | 2009-09-07 |  0  | False |    None    | ['F4'] |      NA      |
+| I15 |   Rhegor Targaryen  |   M    | 1960-07-12 |  29 |  True | 1990-04-06 |   NA   |    ['F3']    |
+| I16 |    John Targaryen   |   M    | 1990-03-04 |  0  | False |    None    | ['F3'] |      NA      |
+| I19 |     Tommen Stark    |   M    | 2011-05-06 |  0  | False |    None    | ['F4'] |      NA      |
++-----+---------------------+--------+------------+-----+-------+------------+--------+--------------+
+Families
++----+---------+----------+------------+------------------+---------+-------------------+-----------------------------------+
+| ID | Married | Divorced | Husband ID |   Husband Name   | Wife ID |     Wife Name     |              Children             |
++----+---------+----------+------------+------------------+---------+-------------------+-----------------------------------+
+| F1 |   None  |   None   |     I1     |  Richard Stark   |    I2   | Layarra Targaryen |      ['I3', 'I4', 'I5', 'I6']     |
+| F2 |   None  |   None   |     I4     |   Eddard Stark   |    I7   |   Catyeln Tully   | ['I8', 'I9', 'I10', 'I11', 'I12'] |
+| F4 |   None  |   None   |    I13     | Jammie Lannister |    I7   |   Catyeln Tully   |           ['I14', 'I19']          |
+| F3 |   None  |   None   |    I15     | Rhegor Targaryen |    I6   |    Lyanna Stark   |              ['I16']              |
++----+---------+----------+------------+------------------+---------+-------------------+-----------------------------------+
+
+User Stories Logs
