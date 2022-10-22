@@ -17,7 +17,7 @@ class Test_siblings_spacing(unittest.TestCase):
         
         for indID in individuals:
             try:
-                famID = individuals[indID].get_famcID()
+                famID = individuals[indID].get_famc_id()
                 
                 if len(famID):
                     siblings = families[famID[0]].get_children()

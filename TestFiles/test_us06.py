@@ -16,8 +16,8 @@ class Test_divorce_before_death(unittest.TestCase):
         
         for indID in individuals:
 
-            death = individuals[indID].get_deathday()
-            fams = individuals[indID].get_famsID()
+            death = individuals[indID].get_death_date()
+            fams = individuals[indID].get_fams_id()
 
             for fam in fams:
                 divorce = families[fam].get_divorce_date()

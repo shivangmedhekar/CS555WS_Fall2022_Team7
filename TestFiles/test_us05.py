@@ -16,9 +16,9 @@ class Test_marriage_before_death(unittest.TestCase):
         
         for indID in individuals:
 
-            death = individuals[indID].get_deathday()
+            death = individuals[indID].get_death_date()
 
-            fams = individuals[indID].get_famsID()
+            fams = individuals[indID].get_fams_id()
             for fam in fams:
                 marriage = families[fam].get_marriage_date()
 

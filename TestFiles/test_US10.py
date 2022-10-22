@@ -17,6 +17,6 @@ class Test_marriage_after_14(unittest.TestCase):
         
         for indID in individuals:
             try:
-                self.assertTrue(marriage_after_14(individuals[indID].get_famsID(), individuals, families))
+                self.assertTrue(marriage_after_14(individuals[indID].get_fams_id(), individuals, families))
             except Exception as e:
                 print("ERROR: INDIVIDUAL: US10: {}: {}".format(indID, e))

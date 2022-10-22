@@ -23,17 +23,17 @@ def no_bigamy(fams: List[str], individuals: List[Dict[str, Individual]], familie
     
     marriage_count = 0
 
-    for famID in fams:
+    for fam_id in fams:
 
-        husbID = families[famID].get_husband()
-        wifeID = families[famID].get_wife()
-        marriage = families[famID].get_marriage_date()
-        divorce = families[famID].get_divorce_date()
+        husb_id = families[fam_id].get_husband()
+        wife_id = families[fam_id].get_wife()
+        marriage_date = families[fam_id].get_marriage_date()
+        divorce_date = families[fam_id].get_divorce_date()
 
-        husband_is_alive = individuals[husbID].is_alive()
-        wife_is_alive = individuals[wifeID].is_alive()
+        husband_is_alive = individuals[husb_id].is_alive()
+        wife_is_alive = individuals[wife_id].is_alive()
         
-        if (marriage and divorce) and (husband_is_alive and wife_is_alive):
+        if (marriage_date and divorce_date) and (husband_is_alive and wife_is_alive):
             marriage_count += 1
         
         if marriage_count > 1:

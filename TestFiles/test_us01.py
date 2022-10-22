@@ -17,8 +17,8 @@ class Test_dates_before_current_date(unittest.TestCase):
         
         for indID in individuals:
 
-            birth = individuals[indID].get_birthday()
-            death = individuals[indID].get_deathday()
+            birth = individuals[indID].get_birth_date()
+            death = individuals[indID].get_death_date()
 
             try:
                 self.assertTrue(dates_before_current_date(date = birth, type = "Birthday"))
@@ -31,7 +31,7 @@ class Test_dates_before_current_date(unittest.TestCase):
                 write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
 
 
-            fams = individuals[indID].get_famsID()
+            fams = individuals[indID].get_fams_id()
             for fam in fams:
 
                 marriage = families[fam].get_marriage_date()

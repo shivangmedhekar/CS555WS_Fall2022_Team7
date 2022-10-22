@@ -16,7 +16,7 @@ class Test_marriage_before_divorce(unittest.TestCase):
         
         for indID in individuals:
 
-            fams = individuals[indID].get_famsID()
+            fams = individuals[indID].get_fams_id()
             for fam in fams:
                 marriage = families[fam].get_marriage_date()
                 divorce = families[fam].get_divorce_date()
