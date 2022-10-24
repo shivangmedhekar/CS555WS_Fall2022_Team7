@@ -2,6 +2,8 @@ from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
 
+from dateutil.relativedelta import relativedelta
+
 def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
     """
     The age difference between mother and children should be fewer than 60 years, while the age difference 
@@ -17,20 +19,25 @@ def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[st
         return True
     
 
-    for famID in fams:
+    for fam_id in fams:
 
-        husbID = families[famID].get_husband()
-        wifeID = families[famID].get_wife()
-        wifeBirth = individuals[wifeID].get_birthday()
-        husbBirth = individuals[husbID].get_birthday()
-        childID = families[famID].get_children()
+        husb_id = families[fam_id].get_husband()
+        wife_id = families[fam_id].get_wife()
+        wife_birth_date = individuals[wife_id].get_birth_date()
+        husb_birth_date = individuals[husb_id].get_birth_date()
+        children = families[fam_id].get_children()
 
 
-        for child in childID:
-            childbirth = individuals[child].get_birthday()
-            if((wifeBirth-childbirth).days > 365*60):
-                raise Exception(f"The age difference between mother and son should be less than 60 years.")
-            if((husbBirth-childbirth).days > 365*80):
-                raise Exception(f"The age difference between father and son should be less than 80 years.")
+        for child_id in children:
+            
+            child_birth_date = individuals[child_id].get_birth_date()
+            diff_between_mother_n_child = relativedelta(child_birth_date, wife_birth_date).years
+            diff_between_father_n_child = relativedelta(child_birth_date, husb_birth_date).years
+            
+            if(diff_between_mother_n_child >= 60):
+                raise Exception(f"The age difference between mother and child should be less than 60 years.")
+            
+            if(diff_between_father_n_child >= 60):
+                raise Exception(f"The age difference between father and child should be less than 80 years.")
         
     return True 

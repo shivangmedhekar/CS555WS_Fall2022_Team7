@@ -10,15 +10,15 @@ def siblings_spacing(siblings: List[str], individuals: List[Dict[str, Individual
     if len(siblings) <= 1:
         return True
 
-    birthdays = []
-    for child in siblings:
-        birth = individuals[child].get_birthday()
-        birthdays.append(birth)
+    birth_dates = []
+    for child_id in siblings:
+        child_birth_date = individuals[child_id].get_birth_date()
+        birth_dates.append(child_birth_date)
 
-    birthdays.sort()
+    birth_dates.sort()
 
-    for i in range(len(birthdays) - 1):
-        diff = relativedelta(birthdays[i + 1], birthdays[i])
+    for i in range(len(birth_dates) - 1):
+        diff = relativedelta(birth_dates[i + 1], birth_dates[i])
         diff_months = (diff.years * 12) + diff.months
         
         if diff_months < 8 and diff.days > 2:

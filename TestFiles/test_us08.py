@@ -15,8 +15,8 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_no_children_without_marriage(unittest.TestCase):
     def test_less_then_150_years_old(self):
         
-        for ID in individuals:
+        for ind_id in individuals:
             try:
-                self.assertTrue(no_children_without_marriage(individuals[ID].get_famsID(), individuals, families))
+                self.assertTrue(no_children_without_marriage(individuals[ind_id].get_fams_id(), individuals, families))
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US08: {}: {}".format(ID, e))
+                write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)

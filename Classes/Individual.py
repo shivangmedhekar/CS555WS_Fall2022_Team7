@@ -2,63 +2,56 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
 class Individual:
-    _indID = None
-    _famcID = None
-    _famsID = None
-    _name = None
-    _sex = None
-    _birth = None
-    _death = None
 
     # -------------------------------- Constructor ------------------------------- #
-    def __init__(self, indID, famcID, famsID, name, sex, birth, death):
-        self._indID = indID
-        self._famcID = famcID
-        self._famsID = famsID
-        self._name = name
-        self._sex = sex
-        self._birth = birth
-        self._death = death
+    def __init__(self, ind_id, famc_id, fams_id, name, sex, birth, death):
+        self.__ind_id = ind_id
+        self.__famc_id = famc_id
+        self.__fams_id = fams_id
+        self.__name = name
+        self.__sex = sex
+        self.__birth = birth
+        self.__death = death
 
     # ---------------------------------------------------------------------------- #
     #                             Retrieving Variables                             #
     # ---------------------------------------------------------------------------- #
-    def get_indID(self):
-        return self._indID
+    def get_ind_id(self):
+        return self.__ind_id
 
-    def get_famsID(self):
-        return self._famsID
+    def get_fams_id(self):
+        return self.__fams_id
 
-    def get_famcID(self):
-        return self._famcID
+    def get_famc_id(self):
+        return self.__famc_id
 
     def get_name(self):
-        return self._name
+        return self.__name
 
     def get_gender(self):
-        return self._sex
+        return self.__sex
 
-    def get_birthday(self):
-        return self._birth
+    def get_birth_date(self):
+        return self.__birth
 
-    def get_deathday(self):
-        return self._death
+    def get_death_date(self):
+        return self.__death
 
     def get_individual(self):
-        return self._name, self._sex, self._birth, self._death, self._famsID, self._famcID
+        return self.__name, self.__sex, self.__birth, self.__death, self.__fams_id, self.__famc_id
 
     # ---------------------------------------------------------------------------- #
     #                               Helper Functions                               #
     # ---------------------------------------------------------------------------- #
     def get_age(self):
 
-        diff = datetime.now() if (self.get_deathday == None) else self.get_deathday()
-        age = relativedelta(diff, self.get_birthday())
+        diff = datetime.now() if (self.get_death_date() == None) else self.get_death_date()
+        age = relativedelta(diff, self.get_birth_date())
         return age
 
     def is_alive(self):
         
-        if self.get_deathday() == None:
+        if self.get_death_date() == None:
             return False
         else:
             return True

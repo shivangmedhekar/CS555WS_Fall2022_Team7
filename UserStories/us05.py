@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------- #
 #                         US 05: Marriage before death                         #
 # ---------------------------------------------------------------------------- #
-def marriage_before_death(marriageDate, deathDate):
+def marriage_before_death(marriage_date, death_date):
     """
     Marriage should occur before death of either spouse
 
@@ -17,13 +17,13 @@ def marriage_before_death(marriageDate, deathDate):
     """
 
     # if the marriage date & death date are empty/null
-    if not marriageDate or not deathDate:
+    if not marriage_date or not death_date:
         return True
 
     # if the death date is after the marriage date
-    if (deathDate - marriageDate).days >= 0:
+    if (death_date - marriage_date).days >= 0:
         return True
 
     # if the marriage date is after the death date
     else:
-        raise Exception("marriage {} is after death {}".format(str(marriageDate, str(deathDate))))
+        raise Exception("marriage {} is after death {}".format(str(marriage_date, str(death_date))))

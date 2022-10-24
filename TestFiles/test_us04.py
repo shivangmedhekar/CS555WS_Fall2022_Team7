@@ -16,7 +16,7 @@ class Test_marriage_before_divorce(unittest.TestCase):
         
         for indID in individuals:
 
-            fams = individuals[indID].get_famsID()
+            fams = individuals[indID].get_fams_id()
             for fam in fams:
                 marriage = families[fam].get_marriage_date()
                 divorce = families[fam].get_divorce_date()
@@ -24,4 +24,4 @@ class Test_marriage_before_divorce(unittest.TestCase):
                 try:
                     self.assertTrue(marriage_before_divorce(marriage, divorce))
                 except Exception as e:
-                    print("ERROR: INDIVIDUAL: US04: {}: {}".format(indID, e))
+                    write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

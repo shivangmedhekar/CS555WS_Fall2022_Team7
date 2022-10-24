@@ -17,8 +17,8 @@ class Test_test_birth_before_marriage(unittest.TestCase):
         
         for indID in individuals:
 
-            birth = individuals[indID].get_birthday()
-            fams = individuals[indID].get_famsID()
+            birth = individuals[indID].get_birth_date()
+            fams = individuals[indID].get_fams_id()
             
             for fam in fams:
                 marriage = families[fam].get_marriage_date()

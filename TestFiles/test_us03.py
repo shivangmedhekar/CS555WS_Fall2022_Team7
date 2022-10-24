@@ -16,8 +16,8 @@ class Test_test_birth_before_death(unittest.TestCase):
         
         for indID in individuals:
 
-            birth = individuals[indID].get_birthday()
-            death = individuals[indID].get_deathday()
+            birth = individuals[indID].get_birth_date()
+            death = individuals[indID].get_death_date()
 
             try:
                 self.assertTrue(birth_before_death(birth, death))
