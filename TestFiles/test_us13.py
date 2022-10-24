@@ -1,4 +1,3 @@
-from math import fabs
 import unittest
 
 from UserStories.us13 import siblings_spacing
@@ -24,4 +23,4 @@ class Test_siblings_spacing(unittest.TestCase):
                     self.assertTrue(siblings_spacing(siblings, individuals))
                     
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US013: {}: {}".format(indID, e))
+                print("ERROR: INDIVIDUAL: US13: {}: {}".format(indID, e))
