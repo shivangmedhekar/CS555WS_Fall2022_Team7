@@ -19,4 +19,4 @@ class Test_age_gap_between_child_and_parents(unittest.TestCase):
             try:
                 self.assertTrue(age_gap_between_child_and_parents(individuals[indID].get_fams_id(), individuals, families))
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US12: {}: {}".format(indID, e))
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

@@ -19,4 +19,4 @@ class Test_marriage_after_14(unittest.TestCase):
             try:
                 self.assertTrue(marriage_after_14(individuals[indID].get_fams_id(), individuals, families))
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US10: {}: {}".format(indID, e))
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

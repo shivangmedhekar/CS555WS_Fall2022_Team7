@@ -4,6 +4,19 @@ from typing import List, Dict
 
 def siblings_should_not_marry(siblings: List[str], individuals: List[Dict[str, Individual]],
                               famalies: List[Dict[str, Family]]) -> bool:
+    """_summary_
+
+    Args:
+        siblings (List[str]): _description_
+        individuals (List[Dict[str, Individual]]): _description_
+        famalies (List[Dict[str, Family]]): _description_
+
+    Raises:
+        Exception: _description_
+
+    Returns:
+        bool: _description_
+    """
     
     if not len(siblings):
         return True

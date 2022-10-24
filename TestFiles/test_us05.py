@@ -25,4 +25,4 @@ class Test_marriage_before_death(unittest.TestCase):
                 try:
                     self.assertTrue(marriage_before_death(marriage, death))
                 except Exception as e:
-                    print("ERROR: INDIVIDUAL: US05: {}: {}".format(indID, e))
+                    write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

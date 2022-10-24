@@ -19,4 +19,4 @@ class Test_child_birth_before_parents_death(unittest.TestCase):
             try:
                 self.assertTrue(child_birth_before_parents_death(individuals[indID].get_fams_id(), individuals, families))
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US09: {}: {}".format(indID, e))
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

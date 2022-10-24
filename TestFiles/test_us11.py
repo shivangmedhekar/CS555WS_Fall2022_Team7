@@ -19,4 +19,4 @@ class Test_no_bigamy(unittest.TestCase):
             try:
                 self.assertTrue(no_bigamy(individuals[indID].get_fams_id(), individuals, families))
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US011: {}: {}".format(indID, e))
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

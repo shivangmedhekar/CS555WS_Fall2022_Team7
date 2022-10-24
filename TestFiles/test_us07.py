@@ -20,6 +20,6 @@ class Test_less_then_150_years_old(unittest.TestCase):
             try:
                 self.assertTrue(less_then_150_years_old(age))
             except Exception as e:
-                print("ERROR: INDIVIDUAL: US07: {}: {}".format(indID, e))
+                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
 
                 

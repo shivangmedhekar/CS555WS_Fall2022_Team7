@@ -22,4 +22,4 @@ class Test_fewer_than_15_siblings(unittest.TestCase):
                 self.assertTrue(fewer_than_15_siblings(siblings=children))
             
             except Exception as e:
-                print("ERROR: FAMILY: US15: {}: {}".format(fam_id, e))
+                write_errors(type = type, user_story = USER_STORY, id = fam_id, error = e)
