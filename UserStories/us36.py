@@ -8,10 +8,11 @@ def recent_death(individuals):
     Death_List = []
     
     for indID in individuals:
-        death_date = Individual[indID].get_death_date()
-        if (death_date!='NA'):
-            if((-death_date+curr_date).days<30 and (-death_date+curr_date).days>0):
+        death_date = individuals[indID].get_death_date()
+        if death_date:
+            if((curr_date - death_date).days < 30 and (curr_date - death_date).days > 0):
                 Death_List.append(death_date)
 
-    print(Death_List)
-    return Death_List 
+    if Death_List:
+        print(Death_List)
+    return Death_List

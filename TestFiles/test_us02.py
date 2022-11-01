@@ -2,8 +2,12 @@ import unittest
 
 from UserStories.us02 import birth_before_marriage
 from Parser.parser import parse
+from write_errors import write_errors
 
 from config import GEDCOM_FILE
+
+USER_STORY = "US02"
+type = "INDIVIDUAL"
 
 individuals, families = parse(GEDCOM_FILE)
 
@@ -13,8 +17,8 @@ class Test_test_birth_before_marriage(unittest.TestCase):
         
         for indID in individuals:
 
-            birth = individuals[indID].get_birthday()
-            fams = individuals[indID].get_famsID()
+            birth = individuals[indID].get_birth_date()
+            fams = individuals[indID].get_fams_id()
             
             for fam in fams:
                 marriage = families[fam].get_marriage_date()

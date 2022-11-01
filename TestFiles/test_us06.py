@@ -2,8 +2,12 @@ import unittest
 
 from UserStories.us06 import divorce_before_death
 from Parser.parser import parse
+from write_errors import write_errors
 
 from config import GEDCOM_FILE
+
+USER_STORY = "US06"
+type = "INDIVIDUAL"
 
 individuals, families = parse(GEDCOM_FILE)
 
@@ -12,8 +16,8 @@ class Test_divorce_before_death(unittest.TestCase):
         
         for indID in individuals:
 
-            death = individuals[indID].get_deathday()
-            fams = individuals[indID].get_famsID()
+            death = individuals[indID].get_death_date()
+            fams = individuals[indID].get_fams_id()
 
             for fam in fams:
                 divorce = families[fam].get_divorce_date()
@@ -21,4 +25,4 @@ class Test_divorce_before_death(unittest.TestCase):
                 try:
                     self.assertTrue(divorce_before_death(divorce, death))
                 except Exception as e:
-                    print("ERROR: INDIVIDUAL: US06: {}: {}".format(indID, e))
+                    write_errors(type = type, user_story = USER_STORY, id = indID, error = e)

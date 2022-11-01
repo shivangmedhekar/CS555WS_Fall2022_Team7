@@ -1,4 +1,6 @@
-def summary(individuals_table, families_table):
+from prettytable import PrettyTable
+
+def summary(individuals_table: PrettyTable, families_table: PrettyTable):
     """
     summary prints and writes to output.txt the PrettyTables of individual and famalilies and 
     also logs or errors and successful runs of user stories.

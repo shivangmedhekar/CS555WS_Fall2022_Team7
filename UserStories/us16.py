@@ -3,7 +3,6 @@ from Classes.Individual import Individual
 from typing import List, Dict
 
 def all_males_have_same_last_name(fams_id_list: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
-    
 
     for fam_id in fams_id_list:
 
@@ -20,3 +19,4 @@ def all_males_have_same_last_name(fams_id_list: List[str], individuals: List[Dic
                 if(Last_name != chil_nam[1]):
                     raise Exception("All male members of a fimily don't have same surname")   
     return True
+

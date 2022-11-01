@@ -1,25 +1,22 @@
+from math import fabs
 import unittest
 
-from UserStories.us03 import birth_before_death
+from UserStories.us11 import no_bigamy
 from Parser.parser import parse
 from write_errors import write_errors
 
 from config import GEDCOM_FILE
 
-USER_STORY = "US03"
+USER_STORY = "US11"
 type = "INDIVIDUAL"
 
 individuals, families = parse(GEDCOM_FILE)
 
-class Test_test_birth_before_death(unittest.TestCase):
-    def test_birth_before_death(self):
+class Test_no_bigamy(unittest.TestCase):
+    def test_less_then_150_years_old(self):
         
         for indID in individuals:
-
-            birth = individuals[indID].get_birth_date()
-            death = individuals[indID].get_death_date()
-
             try:
-                self.assertTrue(birth_before_death(birth, death))
+                self.assertTrue(no_bigamy(individuals[indID].get_fams_id(), individuals, families))
             except Exception as e:
                 write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
