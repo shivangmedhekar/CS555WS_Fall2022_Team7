@@ -6,9 +6,9 @@ def all_males_have_same_last_name(fams_id_list: List[str], individuals: List[Dic
 
     for fam_id in fams_id_list:
 
-        husb_name = families[fam_id].get_husband()
-        hub_nam = str(husb_name).split()
-        Last_name = hub_nam[1]
+        husb_id = families[fam_id].get_husband()
+        hub_name = individuals[husb_id].get_name()
+        Last_name = hub_name.split()[1]
 
         children = families[fam_id].get_children()
 
