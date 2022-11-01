@@ -12,6 +12,6 @@ def recent_death(individuals):
         if (death_date!='NA'):
             if((-death_date+curr_date).days<30 and (-death_date+curr_date).days>0):
                 Death_List.append(death_date)
-
+    
     print(Death_List)
-    return Death_List 
+    return Death_List

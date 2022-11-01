@@ -1,3 +1,4 @@
+from traceback import print_tb
 from Classes.Family import Family
 from Classes.Individual import Individual
 from typing import List, Dict
@@ -9,10 +10,13 @@ def recent_birth(individuals):
     Birth_List = []
     
     for indID in individuals:
-        birth_date = Individual[indID].get_birth_date()
-        if (birth_date!='NA'):
-            if((-birth_date+curr_date).days<30 and (-birth_date+curr_date).days>0):
+        birth_date = individuals[indID].get_birth_date()
+        if birth_date:
+            if((curr_date - birth_date).days < 30 and (curr_date - birth_date).days > 0):
                 Birth_List.append(birth_date)
+        else:
+            return False
 
-    print(Birth_List)
-    return Birth_List 
+    if Birth_List:
+        print(Birth_List)
+    return Birth_List
