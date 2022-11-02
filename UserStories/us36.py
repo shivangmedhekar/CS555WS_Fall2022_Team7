@@ -1,18 +1,24 @@
-from Classes.Family import Family
+# ---------------------------------------------------------------------------- #
+#                           US 36: List recent deaths                          #
+# ---------------------------------------------------------------------------- #
+
 from Classes.Individual import Individual
-from typing import List, Dict
+from typing import Dict
 from datetime import datetime
 
-def recent_death(individuals):
+def recent_death(individuals: Dict[str, Individual]) -> Dict:
     curr_date = datetime.now().date()
-    Death_List = []
+    recent_deaths = {}
     
-    for indID in individuals:
-        death_date = individuals[indID].get_death_date()
+    for ind_id in individuals:
+        death_date = individuals[ind_id].get_death_date()
+        
         if death_date:
-            if((curr_date - death_date).days < 30 and (curr_date - death_date).days > 0):
-                Death_List.append(death_date)
+            
+            diff_from_death_date = (curr_date - death_date).days
+            if diff_from_death_date < 30:
+                recent_deaths[ind_id] = death_date
 
-    if Death_List:
-        print(Death_List)
-    return Death_List
+    if recent_deaths:
+        print(recent_deaths)
+    return recent_deaths
