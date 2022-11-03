@@ -8,15 +8,15 @@ def birth_before_death(birth_date: datetime.date, death_day: datetime.date) -> b
     Birth should occur before death of an individual
 
     Args:
-        birth (datetime.date()): birthday of an individual
-        death (datetime.date() or None): death day of an individual, None if he didn't die yet
+        birth_date (datetime.date): birth date of an individual
+        death_day (datetime.date): death day of an individual
 
     Raises:
         ValueError: If death is passed and birth is None
         Exception: If death day is before brith day
 
     Returns:
-        bool: True if birthday is before deathday
+        bool: True if birth date is before death date else False
     """
 
     if not death_day and not birth_date:

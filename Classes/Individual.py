@@ -43,13 +43,26 @@ class Individual:
     # ---------------------------------------------------------------------------- #
     #                               Helper Functions                               #
     # ---------------------------------------------------------------------------- #
-    def get_age(self):
+    def get_age(self) -> relativedelta:
+        """
+        This function calculates the age of the Individual
 
-        diff = datetime.now() if (self.get_death_date() == None) else self.get_death_date()
-        age = relativedelta(diff, self.get_birth_date())
+        Returns:
+            relativedelta: The age of the Individual
+        """
+
+        end_date = datetime.now() if (self.get_death_date() == None) else self.get_death_date()
+        age = relativedelta(end_date, self.get_birth_date())
         return age
 
-    def is_alive(self):
+
+    def is_alive(self) -> bool:
+        """
+        Checks if an Individual is alive or not
+
+        Returns:
+            bool: True if alive else False
+        """
         
         if self.get_death_date() == None:
             return False

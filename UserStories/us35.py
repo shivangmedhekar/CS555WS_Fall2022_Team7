@@ -19,5 +19,8 @@ def list_recent_births(individuals: Dict[str, Individual]) -> Dict:
             recent_births[ind_id] = birth_date
 
     if recent_births:
-        print(recent_births)
+        print("Recent Births: ")
+        for ind_id in recent_births:
+            print(f"{ind_id}: {recent_births[ind_id]}")
+        
     return recent_births

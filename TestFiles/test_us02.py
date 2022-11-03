@@ -15,10 +15,10 @@ class Test_test_birth_before_marriage(unittest.TestCase):
 
     def test_birth_before_marriage(self):
         
-        for indID in individuals:
+        for ind_id in individuals:
 
-            birth = individuals[indID].get_birth_date()
-            fams = individuals[indID].get_fams_id()
+            birth = individuals[ind_id].get_birth_date()
+            fams = individuals[ind_id].get_fams_id()
             
             for fam in fams:
                 marriage = families[fam].get_marriage_date()
@@ -26,4 +26,4 @@ class Test_test_birth_before_marriage(unittest.TestCase):
                 try:
                     self.assertTrue(birth_before_marriage(birth, marriage))
                 except Exception as e:
-                    print("ERROR: INDIVIDUAL: US02: {}: {}".format(indID, e))
+                    print("ERROR: INDIVIDUAL: US02: {}: {}".format(ind_id, e))

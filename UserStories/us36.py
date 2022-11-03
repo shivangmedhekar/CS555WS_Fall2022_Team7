@@ -20,5 +20,7 @@ def recent_death(individuals: Dict[str, Individual]) -> Dict:
                 recent_deaths[ind_id] = death_date
 
     if recent_deaths:
-        print(recent_deaths)
+        print("\nRecent Deaths: ")
+        for ind_id in recent_deaths:
+            print(f"{ind_id}: {recent_deaths[ind_id]}")
     return recent_deaths

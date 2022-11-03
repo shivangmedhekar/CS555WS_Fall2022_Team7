@@ -14,12 +14,12 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_test_birth_before_death(unittest.TestCase):
     def test_birth_before_death(self):
         
-        for indID in individuals:
+        for ind_id in individuals:
 
-            birth = individuals[indID].get_birth_date()
-            death = individuals[indID].get_death_date()
+            birth = individuals[ind_id].get_birth_date()
+            death = individuals[ind_id].get_death_date()
 
             try:
                 self.assertTrue(birth_before_death(birth, death))
-            except Exception as e:
-                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
+            except (Exception, ValueError) as e:
+                write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)

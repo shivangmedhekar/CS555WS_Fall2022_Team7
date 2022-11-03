@@ -1,7 +1,9 @@
 # ---------------------------------------------------------------------------- #
 #                         US 05: Marriage before death                         #
 # ---------------------------------------------------------------------------- #
-def marriage_before_death(marriage_date, death_date):
+
+from datetime import datetime
+def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date) -> bool:
     """
     Marriage should occur before death of either spouse
 

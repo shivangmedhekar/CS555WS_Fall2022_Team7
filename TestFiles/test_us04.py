@@ -14,9 +14,9 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_marriage_before_divorce(unittest.TestCase):
     def test_marriage_before_divorce(self):
         
-        for indID in individuals:
+        for ind_id in individuals:
 
-            fams = individuals[indID].get_fams_id()
+            fams = individuals[ind_id].get_fams_id()
             for fam in fams:
                 marriage = families[fam].get_marriage_date()
                 divorce = families[fam].get_divorce_date()
@@ -24,4 +24,4 @@ class Test_marriage_before_divorce(unittest.TestCase):
                 try:
                     self.assertTrue(marriage_before_divorce(marriage, divorce))
                 except Exception as e:
-                    write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
+                    write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)

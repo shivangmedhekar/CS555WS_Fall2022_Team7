@@ -15,4 +15,4 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_recent_death(unittest.TestCase):
     def test_recent_death(self):
 
-        self.assertIsInstance(recent_death(individuals),list)
+        self.assertIsInstance(recent_death(individuals),dict)

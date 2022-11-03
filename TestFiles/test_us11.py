@@ -15,8 +15,8 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_no_bigamy(unittest.TestCase):
     def test_less_then_150_years_old(self):
         
-        for indID in individuals:
+        for ind_id in individuals:
             try:
-                self.assertTrue(no_bigamy(individuals[indID].get_fams_id(), individuals, families))
+                self.assertTrue(no_bigamy(individuals[ind_id].get_fams_id(), individuals, families))
             except Exception as e:
-                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
+                write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)

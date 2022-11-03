@@ -8,17 +8,17 @@ def birth_before_marriage(birth_date: datetime.date, marriage_date: datetime.dat
     Birth should occur before marriage of an individual
 
     Args:
-        birthday (datetime.date): _description_
-        marriageDate (datetime.date): _description_
+        birth_date (datetime.date): Birth date of an individual
+        marriage_date (datetime.date): Marriage date of an individual
 
     Raises:
-        Exception: _description_
-        Exception: _description_
+        Exception: If an individual has a marriage date but no birth date
+        Exception: If an individual has birth date after marriage date
 
     Returns:
-        bool: _description_
+        bool: True only if birth date is before marriage date
     """
-
+    
     if not marriage_date and not birth_date:
         return True
 

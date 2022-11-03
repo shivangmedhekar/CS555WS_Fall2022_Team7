@@ -8,16 +8,17 @@ def dates_before_current_date(date: datetime.date, type: str) -> bool:
     Dates (birth, marriage, divorce, death) should not be after the current date
 
     Args:
-        date (datetime.date): _description_
-        type (str): _description_
+        date (datetime.date): Any date present in GEDCOM File
+        type (str): The type of date being passed
 
     Raises:
-        Exception: _description_
-        Exception: _description_
+        Exception: If an individual has no birth date
+        Exception: If the date is occuring in the future
 
     Returns:
-        bool: _description_
+        bool: True if date doesn't occur in the future
     """
+    
     if not date and (type == "Marriage" or type == "Divorce"):
         return True
 

@@ -1,7 +1,9 @@
 # ---------------------------------------------------------------------------- #
 #                        US 04: Marriage before divorce                        #
 # ---------------------------------------------------------------------------- #
-def marriage_before_divorce(marriage_date, divorce_date):
+
+from datetime import datetime
+def marriage_before_divorce(marriage_date: datetime.date, divorce_date: datetime.date) -> bool:
     """
     Marriage should occur before divorce of spouses, and divorce can only occur after marriage
 

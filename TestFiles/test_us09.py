@@ -15,8 +15,8 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_child_birth_before_parents_death(unittest.TestCase):
     def test_child_birth_before_parents_death(self):
         
-        for indID in individuals:
+        for ind_id in individuals:
             try:
-                self.assertTrue(child_birth_before_parents_death(individuals[indID].get_fams_id(), individuals, families))
+                self.assertTrue(child_birth_before_parents_death(individuals[ind_id].get_fams_id(), individuals, families))
             except Exception as e:
-                write_errors(type = type, user_story = USER_STORY, id = indID, error = e)
+                write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)

@@ -16,14 +16,14 @@ MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
 @lru_cache
 def parse(GEDCOM_FILE: str) -> tuple[List[Dict[str, Individual]], List[Dict[str, Family]]]:
     """
-    parse functions parses through the GEDCOM file and extracts important components from it and
+    This functions parses through the GEDCOM file and extracts important components from it and
     put it to a list of objects which are Individual and Families
 
     Args:
-        GEDCOM_FILE (str): _description_
+        GEDCOM_FILE (str): Location of GEDCOM File
 
     Returns:
-        tuple[List[Dict[str, Individual]], List[Dict[str, Family]]]: _description_
+        tuple[List[Dict[str, Individual]], List[Dict[str, Family]]]: Dictionary of Indiviudals and Famalies
     """
 
     individuals, families = {}, {}
@@ -144,13 +144,13 @@ def parse(GEDCOM_FILE: str) -> tuple[List[Dict[str, Individual]], List[Dict[str,
 
 def parse_date(date: str) -> datetime.date:
     """
-    parse_date function take the format used in GEDCOM files and turns it into datetime format
+    This function take the format used in GEDCOM files and turns it into datetime format
 
     Args:
-        date (str): _description_
+        date (str): Takes date in GEDCOM format in type string
 
     Returns:
-        datetime.date: _description_
+        datetime.date: Parsed date
     """
 
     try: 
@@ -162,19 +162,18 @@ def parse_date(date: str) -> datetime.date:
 
         return datetime_element.date()
     except:
-        print(date)
+        print(f'ERROR! GEDCOM PARSER | Following date could not be passed: {date}')
         return None
-
 
 def get_level_n_tag(line: str) -> tuple[int, str]:
     """
-    get_level_n_tag takes file line of type string and extracts level and tag
+    This function takes file line of type string and extracts level and tag
 
     Args:
-        line (String): It is file line of type string
+        line (str): It is file line of type string
 
     Returns:
-        (Int, String): It returns level and tag extracted from the line
+        tuple[int, str]: It returns level and tag extracted from the line
     """
     
     line = line.replace('\n','')
