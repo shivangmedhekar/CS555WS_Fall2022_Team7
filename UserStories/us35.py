@@ -20,8 +20,13 @@ def list_recent_births(individuals: Dict[str, Individual]) -> Dict:
             recent_births[ind_id] = birth_date
 
     if recent_births:
-        print("Recent Births: ")
+        f = open("output.txt", "a")
+        
+        f.write("\nRecent Births: \n")
+        print("\nRecent Births: ")
         for ind_id in recent_births:
             print(f"{ind_id}: {recent_births[ind_id]}")
+            f.write(f"{ind_id}: {recent_births[ind_id]}\n")
+        f.close()
         
     return recent_births

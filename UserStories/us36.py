@@ -22,7 +22,11 @@ def recent_death(individuals: Dict[str, Individual]) -> Dict:
                 recent_deaths[ind_id] = death_date
 
     if recent_deaths:
+        f = open("output.txt", "a")
+        f.write("\nRecent Deaths: \n")
         print("\nRecent Deaths: ")
         for ind_id in recent_deaths:
             print(f"{ind_id}: {recent_deaths[ind_id]}")
+            f.write(f"{ind_id}: {recent_deaths[ind_id]}\n")
+        f.close()
     return recent_deaths
