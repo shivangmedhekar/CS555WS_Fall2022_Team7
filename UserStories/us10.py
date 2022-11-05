@@ -2,6 +2,7 @@ from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
 from dateutil.relativedelta import relativedelta
+from UserStories.helper_functions import difference_in_dates
 
 def marriage_after_14(fams: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
     """
@@ -27,8 +28,8 @@ def marriage_after_14(fams: List[str], individuals: List[Dict[str, Individual]],
         wife_birth_date = individuals[wife_id].get_birth_date()
         husb_birth_date = individuals[husb_id].get_birth_date()
         
-        wife_marriage_age = relativedelta(marriage_date, wife_birth_date).years
-        husb_marriage_age = relativedelta(marriage_date, husb_birth_date).years
+        wife_marriage_age = difference_in_dates(start_date = wife_birth_date, end_date = marriage_date, unit = "years")
+        husb_marriage_age = difference_in_dates(start_date = husb_birth_date, end_date = marriage_date, unit = "years")
 
         if wife_marriage_age < 14 or husb_marriage_age < 14:
             raise Exception(f"Marriage should be 14 years after birth")

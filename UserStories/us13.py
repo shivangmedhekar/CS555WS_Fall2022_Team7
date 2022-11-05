@@ -5,6 +5,7 @@
 from dateutil.relativedelta import relativedelta
 from Classes.Individual import Individual
 from typing import List, Dict
+from UserStories.helper_functions import difference_in_dates
 def siblings_spacing(siblings: List[str], individuals: List[Dict[str, Individual]]) -> bool:
     """
     Birth dates of siblings should be more than 8 months apart or less than 2 days apart
@@ -25,10 +26,10 @@ def siblings_spacing(siblings: List[str], individuals: List[Dict[str, Individual
     birth_dates.sort()
 
     for i in range(len(birth_dates) - 1):
-        diff = relativedelta(birth_dates[i + 1], birth_dates[i])
-        diff_months = (diff.years * 12) + diff.months
+        no_of_days_difference = difference_in_dates(start_date = birth_dates[i], end_date = birth_dates[i + 1], unit = "days")
+        no_of_months_difference = difference_in_dates(start_date = birth_dates[i], end_date = birth_dates[i + 1], unit = "months")
         
-        if diff_months < 8 and diff.days > 2:
+        if no_of_months_difference < 8 and no_of_days_difference > 2:
             return False
         
     return True

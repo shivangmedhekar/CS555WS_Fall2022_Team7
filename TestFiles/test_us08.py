@@ -20,3 +20,14 @@ class Test_birth_before_marriage_of_parents(unittest.TestCase):
                 self.assertTrue(birth_before_marriage_of_parents(individuals[ind_id].get_fams_id(), individuals, families))
             except Exception as e:
                 write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)
+                
+        # for fam_id in families:
+        #     children = families[fam_id].get_children()
+        #     marriage_of_parents = families[fam_id].get_marriage_date()
+        #     if children:
+        #         for child in children:
+        #             child_birth = individuals[child].get_birth_date()
+        #             try:
+        #                 self.assertTrue(birth_before_marriage_of_parents(child_birth, marriage_of_parents))
+        #             except Exception as e:
+        #                 write_errors(type = type, user_story = USER_STORY, id = fam_id, error = e)
