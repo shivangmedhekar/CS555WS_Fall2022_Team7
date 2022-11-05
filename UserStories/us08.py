@@ -5,6 +5,7 @@
 from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
+from UserStories.helper_functions import difference_in_dates
 
 def birth_before_marriage_of_parents(fams_id_list: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
     """
@@ -34,11 +35,15 @@ def birth_before_marriage_of_parents(fams_id_list: List[str], individuals: List[
 
         for child_id in children:
             child_birth = individuals[child_id].get_birth_date()
-
-            if ((child_birth - marriage_date).days > 30 * 9):
+            
+            diff_marriage_child = difference_in_dates(start_date = marriage_date, end_date = child_birth, unit = 'days')
+            
+            if diff_marriage_child >= 0:
                 raise Exception(f"Marriage date:{marriage_date} should be 9 months before Child birth date:{child_birth}")
-
-            if ((divorce_date - child_birth).days < 30 * 9):
-                raise Exception(f"Divorce date:{divorce_date} should be 9 months before Child Birth date:{child_birth}")
+            
+            no_of_months_diff_divorce_child = difference_in_dates(start_date = child_birth, end_date = divorce_date, unit = 'months')
+            
+            if no_of_months_diff_divorce_child < 9:
+                raise Exception(f"Divorce date:{divorce_date} should be more than 9 months after Child Birth date:{child_birth}")
         
     return True

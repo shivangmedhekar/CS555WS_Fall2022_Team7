@@ -3,6 +3,7 @@
 # ---------------------------------------------------------------------------- #
 
 from datetime import datetime
+from UserStories.helper_functions import difference_in_dates
 def birth_before_marriage(birth_date: datetime.date, marriage_date: datetime.date) -> bool:
     """
     Birth should occur before marriage of an individual
@@ -28,7 +29,9 @@ def birth_before_marriage(birth_date: datetime.date, marriage_date: datetime.dat
     if not birth_date and marriage_date:
         raise Exception("Has Marriage date but no Birthday")
     
-    if (marriage_date - birth_date).days >= 0:
+    no_of_days_differnece = difference_in_dates(start_date = birth_date, end_date = marriage_date, unit = 'days')
+    
+    if no_of_days_differnece >= 0:
         return True
     else:
         raise Exception("Birthday {} is after marriage {}".format(str(birth_date, str(marriage_date))))

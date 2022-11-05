@@ -3,6 +3,7 @@ from Classes.Family import Family
 from typing import List, Dict
 
 from dateutil.relativedelta import relativedelta
+from UserStories.helper_functions import difference_in_dates
 
 def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
     """
@@ -30,8 +31,8 @@ def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[st
         for child_id in children:
             
             child_birth_date = individuals[child_id].get_birth_date()
-            diff_between_mother_n_child = relativedelta(child_birth_date, wife_birth_date).years
-            diff_between_father_n_child = relativedelta(child_birth_date, husb_birth_date).years
+            diff_between_mother_n_child = difference_in_dates(start_date = child_birth_date, end_date = wife_birth_date, unit = "years")
+            diff_between_father_n_child = difference_in_dates(start_date = child_birth_date, end_date = husb_birth_date, unit = "years")
             
             if(diff_between_mother_n_child >= 60):
                 raise Exception(f"The age difference between mother and child should be less than 60 years.")

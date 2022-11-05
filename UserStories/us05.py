@@ -3,6 +3,7 @@
 # ---------------------------------------------------------------------------- #
 
 from datetime import datetime
+from UserStories.helper_functions import difference_in_dates
 def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date) -> bool:
     """
     Marriage should occur before death of either spouse
@@ -23,7 +24,9 @@ def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date
         return True
 
     # if the death date is after the marriage date
-    if (death_date - marriage_date).days >= 0:
+    no_of_days_differnece = difference_in_dates(start_date = marriage_date, end_date = death_date, unit = 'days')
+    
+    if no_of_days_differnece >= 0:
         return True
 
     # if the marriage date is after the death date
