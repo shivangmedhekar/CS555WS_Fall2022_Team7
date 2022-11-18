@@ -1,3 +1,7 @@
+# ---------------------------------------------------------------------------- #
+#                          US 12: Parents not too old                          #
+# ---------------------------------------------------------------------------- #
+
 from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
@@ -35,9 +39,9 @@ def age_gap_between_child_and_parents(fams: List[str], individuals: List[Dict[st
             diff_between_father_n_child = difference_in_dates(start_date = child_birth_date, end_date = husb_birth_date, unit = "years")
             
             if(diff_between_mother_n_child >= 60):
-                raise Exception(f"The age difference between mother and child should be less than 60 years.")
+                raise Exception(f"The age difference between mother [{wife_id}] and child [{child_id}] should be less than 60 years.")
             
-            if(diff_between_father_n_child >= 60):
+            if(diff_between_father_n_child >= 80):
                 raise Exception(f"The age difference between father and child should be less than 80 years.")
         
     return True 
