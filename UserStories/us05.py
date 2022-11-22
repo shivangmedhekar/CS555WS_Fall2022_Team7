@@ -18,7 +18,6 @@ def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date
     Returns:
         _type_: _description_
     """
-
     # if the marriage date & death date are empty/null
     if not marriage_date or not death_date:
         return True
