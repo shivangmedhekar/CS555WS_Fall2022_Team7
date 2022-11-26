@@ -31,4 +31,4 @@ def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date
 
     # if the marriage date is after the death date
     else:
-        raise Exception("marriage {} is after death {}".format(str(marriage_date, str(death_date))))
+        raise Exception("marriage {} is after death {}".format(str(marriage_date), str(death_date)))

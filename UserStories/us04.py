@@ -38,4 +38,4 @@ def marriage_before_divorce(marriage_date: datetime.date, divorce_date: datetime
 
     # if the marriage date is after the divorce date
     else:
-        raise Exception("marriage {} is after divorce {}".format(str(marriage_date, str(divorce_date))))
+        raise Exception("marriage {} is after divorce {}".format(str(marriage_date), str(divorce_date)))
