@@ -1,4 +1,3 @@
-from math import fabs
 import unittest
 
 from UserStories.us22 import unique_IDs

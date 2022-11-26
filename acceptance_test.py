@@ -621,8 +621,100 @@ class Test_US20(unittest.TestCase):
         individuals['I10'].set_fams_id([])
         del families['F6']
         
-            
+# ---------------------------------------------------------------------------- #
+#                        US 21: Correct gender for role                        #
+# ---------------------------------------------------------------------------- #
+class Test_US21(unittest.TestCase):
+    def test_correct_gender_for_role(self):
+        
+        USER_STORY = "US21"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        for fam_id in families:
+            try:
+                self.assertTrue(us21.correct_gender_for_role(fam_id, individuals, families))   
+                
+            except Exception as e:
+                write_errors(user_story = USER_STORY, error = e)
+                
+         # -------------------------------- Fail Test 1 ------------------------------- # 
+        individuals['I2'].set_gender('M')
+        for fam_id in families:
+            try:
+                self.assertTrue(us21.correct_gender_for_role(fam_id, individuals, families))   
+                
+            except Exception as e:
+                write_errors(user_story = USER_STORY, error = e)
+                
+        individuals['I2'].set_gender('F')
+        
+# ---------------------------------------------------------------------------- #
+#                               US 22: Unique IDs                              #
+# ---------------------------------------------------------------------------- #
+class Test_US22(unittest.TestCase):
+    def test_unique_IDs(self):
+        
+        USER_STORY = "US22"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        
+        indIDs = [ind_id for ind_id in individuals]
+        famIDs = [fam_id for fam_id in families]
 
+        try:
+            self.assertTrue(us22.unique_IDs(indIDs, famIDs))
+           
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+        
+        # -------------------------------- Fail Test 1 ------------------------------- #  
+        
+        indIDs = [ind_id for ind_id in individuals]
+        famIDs = [fam_id for fam_id in families]
+        
+        indIDs[1] = 'I1'
+
+        try:
+            self.assertTrue(us22.unique_IDs(indIDs, famIDs))
+           
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+        
+# ---------------------------------------------------------------------------- #
+#                       US 23: Unique name and birth date                      #
+# ---------------------------------------------------------------------------- #
+class Test_US23(unittest.TestCase):
+    def test_unique_name_and_birthdate(self):
+        
+        USER_STORY = "US23"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        
+        indIDs = [ind_id for ind_id in individuals]
+
+        try:
+            self.assertTrue(us23.unique_name_and_birthdate(indIDs, individuals))
+           
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+            
+        # -------------------------------- Fail Test 1 ------------------------------- #  
+        
+        indIDs = [ind_id for ind_id in individuals]
+        individuals['I2'].set_name('Richard Stark')
+        individuals['I2'].set_birth_date(datetime.datetime.strptime('04/08/1936', "%m/%d/%Y").date())
+
+        try:
+            self.assertTrue(us23.unique_name_and_birthdate(indIDs, individuals))
+           
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+        
+        individuals['I2'].set_name('Layarra Targaryen')
+        individuals['I2'].set_birth_date(datetime.datetime.strptime('07/08/1940', "%m/%d/%Y").date())
         
             
         
