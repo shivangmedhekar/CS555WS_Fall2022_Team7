@@ -34,4 +34,4 @@ def birth_before_marriage(birth_date: datetime.date, marriage_date: datetime.dat
     if no_of_days_differnece >= 0:
         return True
     else:
-        raise Exception("Birthday {} is after marriage {}".format(str(birth_date, str(marriage_date))))
+        raise Exception("Birth date {} is after marriage date {}".format(str(birth_date), str(marriage_date)))
