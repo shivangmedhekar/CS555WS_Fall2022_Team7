@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                       US 01: Dates before current date                       #
 # ---------------------------------------------------------------------------- #
-
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 def dates_before_current_date(date: datetime.date, type: str) -> bool: 

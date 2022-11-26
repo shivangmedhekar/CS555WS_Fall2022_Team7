@@ -2,8 +2,6 @@ import unittest
 from UserStories import *
 import datetime
 
-
-
 class Test_all_user_stories(unittest.TestCase):
     
     # ---------------------------------------------------------------------------- #
@@ -182,6 +180,78 @@ class Test_all_user_stories(unittest.TestCase):
         # -------------------------------- Fail Test 1 ------------------------------- #
         try :
             self.assertTrue(us07.less_then_150_years_old(age = 161))
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+            
+    # ---------------------------------------------------------------------------- #
+    #                    US 08: Birth before marriage of parents                   #
+    # ---------------------------------------------------------------------------- # 
+    def test_birth_before_marriage_of_parents(self):
+        
+        USER_STORY = "US08"
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #
+        
+        child_birth = datetime.datetime.strptime('05/24/1998', "%m/%d/%Y").date()
+        marriage_of_parents = datetime.datetime.strptime('07/10/1992', "%m/%d/%Y").date()
+        divorce_of_parents = datetime.datetime.strptime('07/10/2016', "%m/%d/%Y").date()
+        try: 
+            self.assertTrue(us08.birth_before_marriage_of_parents(child_birth, marriage_of_parents, divorce_of_parents))
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+        
+        # -------------------------------- Fail Test 1 ------------------------------- #
+        
+        child_birth = datetime.datetime.strptime('05/24/1992', "%m/%d/%Y").date()
+        marriage_of_parents = datetime.datetime.strptime('07/10/1992', "%m/%d/%Y").date()
+        divorce_of_parents = datetime.datetime.strptime('07/10/2016', "%m/%d/%Y").date()
+        
+        try :
+            self.assertTrue(us08.birth_before_marriage_of_parents(child_birth, marriage_of_parents, divorce_of_parents))
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+            
+    # ---------------------------------------------------------------------------- #
+    #                     US 09: Birth before death of parents                     #
+    # ---------------------------------------------------------------------------- #
+    def test_child_birth_before_parents_death(self):
+        
+        USER_STORY = "US09"
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #
+        
+        child_birth_date = datetime.datetime.strptime('05/24/1998', "%m/%d/%Y").date()
+        father_death_date = datetime.datetime.strptime('07/10/2018', "%m/%d/%Y").date()
+        mother_death_date = datetime.datetime.strptime('07/10/2022', "%m/%d/%Y").date()
+        try: 
+            self.assertTrue(us09.child_birth_before_parents_death(child_birth_date, father_death_date, mother_death_date))
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+        
+        # -------------------------------- Fail Test 1 ------------------------------- #
+        
+        child_birth_date = datetime.datetime.strptime('05/24/1998', "%m/%d/%Y").date()
+        father_death_date = datetime.datetime.strptime('07/10/1997', "%m/%d/%Y").date()
+        mother_death_date = datetime.datetime.strptime('07/10/2016', "%m/%d/%Y").date()
+        
+        try :
+            self.assertTrue(us09.child_birth_before_parents_death(child_birth_date, father_death_date, mother_death_date))
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+            
+        # -------------------------------- Fail Test 2 ------------------------------- #
+        
+        child_birth_date = datetime.datetime.strptime('05/24/1998', "%m/%d/%Y").date()
+        father_death_date = datetime.datetime.strptime('07/10/2016', "%m/%d/%Y").date()
+        mother_death_date = datetime.datetime.strptime('07/10/1997', "%m/%d/%Y").date()
+        
+        try :
+            self.assertTrue(us09.child_birth_before_parents_death(child_birth_date, father_death_date, mother_death_date))
             
         except Exception as e:
             write_errors(user_story = USER_STORY, error = e)

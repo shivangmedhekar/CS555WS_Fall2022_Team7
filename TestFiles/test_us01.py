@@ -6,8 +6,8 @@ from write_errors import write_errors
 
 from config import GEDCOM_FILE
 
-type = "INDIVIDUAL"
 USER_STORY = 'US01'
+type = "INDIVIDUAL"
 
 individuals, families = parse(GEDCOM_FILE)
 

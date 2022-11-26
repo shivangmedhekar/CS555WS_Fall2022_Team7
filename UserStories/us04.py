@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                        US 04: Marriage before divorce                        #
 # ---------------------------------------------------------------------------- #
-
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 def marriage_before_divorce(marriage_date: datetime.date, divorce_date: datetime.date) -> bool:

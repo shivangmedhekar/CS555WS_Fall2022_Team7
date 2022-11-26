@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                           US 03: Birth before death                          #
 # ---------------------------------------------------------------------------- #
-
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 def birth_before_death(birth_date: datetime.date, death_day: datetime.date) -> bool:

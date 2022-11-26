@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                    US 08: Birth before marriage of parents                   #
 # ---------------------------------------------------------------------------- #
-
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 

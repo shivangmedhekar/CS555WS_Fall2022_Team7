@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                         US 02: Birth before marriage                         #
 # ---------------------------------------------------------------------------- #
-
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 def birth_before_marriage(birth_date: datetime.date, marriage_date: datetime.date) -> bool:

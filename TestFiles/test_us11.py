@@ -13,7 +13,7 @@ type = "INDIVIDUAL"
 individuals, families = parse(GEDCOM_FILE)
 
 class Test_no_bigamy(unittest.TestCase):
-    def test_less_then_150_years_old(self):
+    def test_no_bigamy(self):
         
         for ind_id in individuals:
             try:

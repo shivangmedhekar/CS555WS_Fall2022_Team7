@@ -9,14 +9,14 @@ def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date
     Marriage should occur before death of either spouse
 
     Args:
-        marriageDate (_type_): _description_
-        deathDate (_type_): _description_
+        marriage_date (datetime.date): _description_
+        death_date (datetime.date): _description_
 
     Raises:
         Exception: _description_
 
     Returns:
-        _type_: _description_
+        bool: _description_
     """
     # if the marriage date & death date are empty/null
     if not marriage_date or not death_date:

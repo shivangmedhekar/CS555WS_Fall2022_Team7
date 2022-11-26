@@ -1,37 +1,28 @@
-from Classes.Individual import Individual
-from Classes.Family import Family
-from typing import List, Dict
-from dateutil.relativedelta import relativedelta
+# ---------------------------------------------------------------------------- #
+#                           US 10: Marriage after 14                           #
+# ---------------------------------------------------------------------------- #
+from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 
-def marriage_after_14(fams: List[str], individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
+def marriage_after_14(husb_birth_date: datetime.date, wife_birth_date: datetime.date, marriage_date: datetime.date) -> bool:
     """
     marriage should occur after 14 years
+
     Args:
-        fams (list): list of families the individual is a spouse
-        individuals (dict): dict of individuals {indID: []}
-        families (dict): dict of families {famID: []}
+        husb_birth_date (datetime.date): _description_
+        wife_birth_date (datetime.date): _description_
+        marriage_date (datetime.date): _description_
+
+    Raises:
+        Exception: _description_
+
     Returns:
-        bool: True if no_bigamy else False
+        bool: _description_
     """
-    if len(fams) <= 1:
-        return True
-    
-    for fam_id in fams:
+    wife_marriage_age = difference_in_dates(start_date = wife_birth_date, end_date = marriage_date, unit = "years")
+    husb_marriage_age = difference_in_dates(start_date = husb_birth_date, end_date = marriage_date, unit = "years")
 
-        husb_id = families[fam_id].get_husband()
-        wife_id = families[fam_id].get_wife()
-        marriage_date = families[fam_id].get_marriage_date()
-        if marriage_date == None:
-            return True
-        
-        wife_birth_date = individuals[wife_id].get_birth_date()
-        husb_birth_date = individuals[husb_id].get_birth_date()
-        
-        wife_marriage_age = difference_in_dates(start_date = wife_birth_date, end_date = marriage_date, unit = "years")
-        husb_marriage_age = difference_in_dates(start_date = husb_birth_date, end_date = marriage_date, unit = "years")
-
-        if wife_marriage_age < 14 or husb_marriage_age < 14:
-            raise Exception(f"Marriage should be 14 years after birth")
-        
+    if wife_marriage_age < 14 or husb_marriage_age < 14:
+        raise Exception(f"Marriage should be 14 years after birth")
+         
     return True
