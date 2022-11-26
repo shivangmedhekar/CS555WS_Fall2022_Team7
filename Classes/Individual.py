@@ -39,6 +39,28 @@ class Individual:
 
     def get_individual(self):
         return self.__name, self.__sex, self.__birth, self.__death, self.__fams_id, self.__famc_id
+    
+    # ---------------------------------------------------------------------------- #
+    #                                    Setters                                   #
+    # ---------------------------------------------------------------------------- #
+
+    def set_fams_id(self, fams_id):
+        self.__fams_id = fams_id
+
+    def set_famc_id(self, famc_id):
+        self.__famc_id = famc_id
+
+    def set_name(self, name):
+        self.__name = name
+
+    def set_gender(self, sex):
+        self.__sex = sex
+
+    def set_birth_date(self, birth_date):
+        self.__birth = birth_date
+    
+    def set_death_date(self, death_date):
+        self.__death = death_date
 
     # ---------------------------------------------------------------------------- #
     #                               Helper Functions                               #
@@ -65,6 +87,6 @@ class Individual:
         """
         
         if self.get_death_date() == None:
-            return False
-        else:
             return True
+        else:
+            return False
