@@ -7,6 +7,7 @@ from Classes.Family import Family
 from typing import List, Dict
 
 def unique_first_names_in_families(children, individuals):
+    # No more than one child with the same name and birth date should appear in a family
     
     first_names = set()
     birth_dates = set()

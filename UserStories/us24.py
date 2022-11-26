@@ -3,6 +3,8 @@ from Classes.Family import Family
 from typing import List, Dict
 
 def unique_families_by_spouces(famIDs, families):
+    # No more than one family with the same spouses by name and
+    # the same marriage date should appear in a GEDCOM file
 
     n = len(famIDs)
     
