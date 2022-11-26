@@ -1,9 +1,11 @@
-from Classes.Individual import Individual
-from Classes.Family import Family
-from typing import List, Dict
+# ---------------------------------------------------------------------------- #
+#                         US 15: Fewer than 15 siblings                        #
+# ---------------------------------------------------------------------------- #
+from typing import List
 
 def fewer_than_15_siblings(siblings: List[str]) -> bool:
-    """_summary_
+    """
+    There should be fewer than 15 siblings in a family
 
     Args:
         siblings (List[str]): _description_
@@ -18,4 +20,4 @@ def fewer_than_15_siblings(siblings: List[str]) -> bool:
     if len(siblings) < 15:
         return True
     else:
-        raise Exception("has more then 15 siblings")
+        raise Exception(f"There should be fewer than 15 siblings in a family | Sibling Count: {len(siblings)}")

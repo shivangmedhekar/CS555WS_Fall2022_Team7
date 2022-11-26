@@ -1,10 +1,14 @@
+# ---------------------------------------------------------------------------- #
+#                       US 18: Siblings should not marry                       #
+# ---------------------------------------------------------------------------- #
 from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
 
 def siblings_should_not_marry(siblings: List[str], individuals: List[Dict[str, Individual]],
                               famalies: List[Dict[str, Family]]) -> bool:
-    """_summary_
+    """
+    Siblings should not marry one another
 
     Args:
         siblings (List[str]): _description_

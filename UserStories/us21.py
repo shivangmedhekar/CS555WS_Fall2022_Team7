@@ -2,7 +2,7 @@ from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
 
-def correct_gender_for_role(famIDs,families, individuals):
+def correct_gender_for_role(famIDs, families, individuals):
 
     for famID in famIDs:
         husb_id = families[famID].get_husband()

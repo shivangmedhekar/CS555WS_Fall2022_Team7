@@ -16,7 +16,9 @@ class Test_no_bigamy(unittest.TestCase):
     def test_no_bigamy(self):
         
         for ind_id in individuals:
+            fams = individuals[ind_id].get_fams_id()
+            
             try:
-                self.assertTrue(no_bigamy(individuals[ind_id].get_fams_id(), individuals, families))
+                self.assertTrue(no_bigamy(fams, individuals, families))
             except Exception as e:
                 write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)

@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                           US 36: List recent deaths                          #
 # ---------------------------------------------------------------------------- #
-
 from Classes.Individual import Individual
 from typing import Dict
 from datetime import datetime

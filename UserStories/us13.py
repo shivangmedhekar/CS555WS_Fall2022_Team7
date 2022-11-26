@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                            US 13: Siblings spacing                           #
 # ---------------------------------------------------------------------------- #
-
 from typing import List
 from datetime import datetime
 
@@ -29,6 +28,6 @@ def siblings_spacing(birth_dates: List[datetime.date]) -> bool:
         no_of_months_difference = difference_in_dates(start_date = birth_dates[i], end_date = birth_dates[i + 1], unit = "months")
         
         if no_of_months_difference < 8 and no_of_days_difference > 2:
-            return False
+            raise Exception('Birth dates of siblings should be more than 8 months apart or less than 2 days apart')
         
     return True
