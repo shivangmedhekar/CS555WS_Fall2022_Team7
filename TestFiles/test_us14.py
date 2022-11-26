@@ -7,17 +7,19 @@ from write_errors import write_errors
 from config import GEDCOM_FILE
 
 USER_STORY = "US14"
-type = "INDIVIDUAL"
+type = "FAMILY" 
 
 individuals, families = parse(GEDCOM_FILE)
 
 class Test_multiple_births_less_then_equal_to_5(unittest.TestCase):
     def test_multiple_births_less_then_equal_to_5(self):
         
-        for ind_id in individuals:
-            try:
-                self.assertTrue(multiple_births_less_then_equal_to_5(fams_id_list = individuals[ind_id].get_fams_id(),
-                                                                     individuals = individuals, 
-                                                                     families = families))
-            except Exception as e:
-                write_errors(type = type, user_story = USER_STORY, id = ind_id, error = e)
+        for fam_id in families:
+            
+            children = families[fam_id].get_children()
+            if len(children):
+                children_birth_dates = [individuals[child].get_birth_date() for child in children]
+                try:
+                    self.assertTrue(multiple_births_less_then_equal_to_5(children_birth_dates))
+                except Exception as e:
+                    write_errors(type = type, user_story = USER_STORY, id = fam_id, error = e)

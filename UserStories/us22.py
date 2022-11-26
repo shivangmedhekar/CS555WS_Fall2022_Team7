@@ -1,10 +1,6 @@
-from Classes.Individual import Individual
-from Classes.Family import Family
-from typing import List, Dict
+def unique_IDs(ind_ids, fam_ids):
 
-def unique_IDs(famIDs,indIDs):
-
-    if len(famIDs)!=len(set(famIDs)) or len(indIDs)!=len(set(indIDs)):
+    if len(ind_ids)!=len(set(ind_ids)) or len(fam_ids)!=len(set(fam_ids)):
         raise Exception('No unique IDs') 
                     
     return True
