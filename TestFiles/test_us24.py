@@ -1,13 +1,12 @@
-from math import fabs
 import unittest
 
 from UserStories.us24 import unique_families_by_spouces
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
-USER_STORY = "us24"
+USER_STORY = "US24"
 type = "FAMILY"
 
 individuals, families = parse(GEDCOM_FILE)

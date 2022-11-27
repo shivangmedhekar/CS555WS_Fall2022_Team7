@@ -8,13 +8,13 @@ def fewer_than_15_siblings(siblings: List[str]) -> bool:
     There should be fewer than 15 siblings in a family
 
     Args:
-        siblings (List[str]): _description_
+        siblings (List[str]): List of ID's of childrens from Family Class
 
     Raises:
-        Exception: _description_
+        Exception: There are more then 15 siblings in a family
 
     Returns:
-        bool: _description_
+        bool: True if exception not raised
     """
     
     if len(siblings) < 15:

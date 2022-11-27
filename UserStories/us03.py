@@ -3,6 +3,7 @@
 # ---------------------------------------------------------------------------- #
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
+
 def birth_before_death(birth_date: datetime.date, death_day: datetime.date) -> bool:
     """
     Birth should occur before death of an individual
@@ -16,7 +17,7 @@ def birth_before_death(birth_date: datetime.date, death_day: datetime.date) -> b
         Exception: If death day is before brith day
 
     Returns:
-        bool: True if birth date is before death date else False
+        bool: True if exceptions not raised
     """
 
     if not death_day and not birth_date:

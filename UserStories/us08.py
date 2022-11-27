@@ -9,16 +9,16 @@ def birth_before_marriage_of_parents(child_birth_date: datetime.date, marriage_o
     Children should be born after marriage of parents (and not more than 9 months after their divorce)
 
     Args:
-        child_birth_date (datetime.date): _description_
-        marriage_of_parents (datetime.date): _description_
-        divorce_of_parents (datetime.date): _description_
+        child_birth_date (datetime.date): Birth date of child from Individual Class
+        marriage_of_parents (datetime.date): Marriage date of parents from Family Class
+        divorce_of_parents (datetime.date): Divorce date of parents from Family Class
 
     Raises:
-        Exception: _description_
-        Exception: _description_
+        Exception: If marriage_date is not 9 months before child_birth_date
+        Exception: If divorce_date is not 9 months after child_birth_date
 
     Returns:
-        bool: _description_
+        bool: True if exception not raised
     """
     
     diff_marriage_child = difference_in_dates(start_date = marriage_of_parents, end_date = child_birth_date, unit = 'days')

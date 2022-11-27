@@ -9,16 +9,17 @@ class Individual:
     # -------------------------------- Constructor ------------------------------- #
     def __init__(self, ind_id: str, famc_id: List[str], fams_id: List[str],
                  name: str, sex: str, birth: datetime.date, death: datetime.date):
-        """_summary_
+        """
+        This is the constructor of class Individual
 
         Args:
-            ind_id (str): _description_
-            famc_id (List[str]): _description_
-            fams_id (List[str]): _description_
-            name (str): _description_
-            sex (str): _description_
-            birth (datetime.date): _description_
-            death (datetime.date): _description_
+            ind_id (str): Unique ID of individual
+            famc_id (List[str]): List of IDs of children of this individual
+            fams_id (List[str]): List of IDs of spouses of this individual
+            name (str): Name of the individual
+            sex (str): Gender(M/F) of the individual
+            birth (datetime.date): Birth date of individual
+            death (datetime.date): Death date of individual
         """
         
         self.__ind_id = ind_id

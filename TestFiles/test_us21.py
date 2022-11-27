@@ -1,13 +1,12 @@
-from math import fabs
 import unittest
 
 from UserStories.us21 import correct_gender_for_role
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
-USER_STORY = "us21"
+USER_STORY = "US21"
 type = "FAMILY"
 
 individuals, families = parse(GEDCOM_FILE)

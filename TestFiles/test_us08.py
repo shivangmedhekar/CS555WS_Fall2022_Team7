@@ -2,10 +2,10 @@ from math import fabs
 import unittest
 
 from UserStories.us08 import birth_before_marriage_of_parents
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US08"
 type = "FAMILY"

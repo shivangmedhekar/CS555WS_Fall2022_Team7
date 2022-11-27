@@ -3,6 +3,7 @@
 # ---------------------------------------------------------------------------- #
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
+
 def dates_before_current_date(date: datetime.date, type: str) -> bool: 
     """
     Dates (birth, marriage, divorce, death) should not be after the current date
@@ -16,7 +17,7 @@ def dates_before_current_date(date: datetime.date, type: str) -> bool:
         Exception: If the date is occuring in the future
 
     Returns:
-        bool: True if date doesn't occur in the future
+        bool: True if exceptions not raised
     """
     
     if not date and (type == "Marriage" or type == "Divorce"):

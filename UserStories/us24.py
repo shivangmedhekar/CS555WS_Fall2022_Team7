@@ -1,14 +1,24 @@
 # ---------------------------------------------------------------------------- #
 #                       US 24: Unique families by spouses                      #
 # ---------------------------------------------------------------------------- #
-
 from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
 
-def unique_families_by_spouces(individuals, families):
-    # No more than one family with the same spouses by name and
-    # the same marriage date should appear in a GEDCOM file
+def unique_families_by_spouces(individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
+    """
+    No more than one family with the same spouses by name and the same marriage date should appear in a GEDCOM file
+
+    Args:
+        individuals (List[Dict[str, Individual]]): Is a list of class objects Individual
+        families (List[Dict[str, Family]]): Is a list of class objects Family
+
+    Raises:
+        Exception: If same spouse details(name, marriage_date) repeat
+
+    Returns:
+        bool: True if exception not raised
+    """
     
     counter = 0 
     

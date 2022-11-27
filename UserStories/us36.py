@@ -7,6 +7,16 @@ from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 
 def recent_death(individuals: Dict[str, Individual]) -> Dict:
+    """
+    List all people in a GEDCOM file who died in the last 30 days
+
+    Args:
+        individuals (Dict[str, Individual]): Is a list of class objects Individual
+
+    Returns:
+        Dict: Recent deaths ID's as key and their death date as value
+    """
+    
     curr_date = datetime.now().date()
     recent_deaths = {}
     

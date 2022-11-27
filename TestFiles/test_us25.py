@@ -1,11 +1,10 @@
 import unittest
-from Classes.Family import Family
 
 from UserStories.us25 import unique_first_names_in_families
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US25"
 type = "FAMILY"

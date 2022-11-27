@@ -11,11 +11,11 @@ def siblings_spacing(birth_dates: List[datetime.date]) -> bool:
     (twins may be born one day apart, e.g. 11:59 PM and 12:02 AM the following calendar day)
 
     Args:
-        siblings (List[str]): _description_
-        individuals (List[Dict[str, Individual]]): _description_
+        siblings (List[str]): List of IDs from children of Family class
+        individuals (List[Dict[str, Individual]]): Is a list of class objects Individual
 
-    Returns:c
-        bool: _description_
+    Returns:
+        bool: True if exception not raised
     """
     
     if len(birth_dates) <= 1:

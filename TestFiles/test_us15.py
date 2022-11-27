@@ -2,10 +2,10 @@ import unittest
 from Classes.Family import Family
 
 from UserStories.us15 import fewer_than_15_siblings
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US18"
 type = "FAMILY"

@@ -2,13 +2,13 @@ from math import fabs
 import unittest
 
 from UserStories.us09 import child_birth_before_parents_death
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US09"
-type = "INDIVIDUAL"
+type = "FAMILY"
 
 individuals, families = parse(GEDCOM_FILE)
 

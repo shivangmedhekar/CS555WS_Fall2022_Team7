@@ -3,20 +3,21 @@
 # ---------------------------------------------------------------------------- #
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
+
 def marriage_before_divorce(marriage_date: datetime.date, divorce_date: datetime.date) -> bool:
     """
     Marriage should occur before divorce of spouses, and divorce can only occur after marriage
 
     Args:
-        marriageDate (datetime.date()): _description_
-        divorceDate (datetime.date()): _description_
+        marriage_date (datetime.date): Marriage date from Family class
+        divorce_date (datetime.date): Divorce date from Family class
 
     Raises:
-        Exception: _description_
-        Exception: _description_
+        Exception: If marriage_date is None and divorce_date is present
+        Exception: If marriage_date is after divorce_date
 
     Returns:
-        _type_: _description_
+        bool: True if exceptions not raised
     """
 
     # if the marriage date & divorce date are empty/null

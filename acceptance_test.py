@@ -1,8 +1,8 @@
 import unittest
 from UserStories import *
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from Classes.Family import Family
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 import datetime
 
 individuals, families = parse(GEDCOM_FILE)
@@ -574,7 +574,7 @@ class Test_US18(unittest.TestCase):
         
         individuals['I5'].set_fams_id(['F6']) 
         individuals['I6'].set_fams_id(['F3', 'F6'])
-        families['F6'] = Family(famID='F6', husband = 'I5', wife = 'I6', marriage_date = None, divorce_date = None, children = [])
+        families['F6'] = Family(fam_id='F6', husband = 'I5', wife = 'I6', marriage_date = None, divorce_date = None, children = [])
         
         for fam_id in families:
             children = families[fam_id].get_children()
@@ -609,7 +609,7 @@ class Test_US20(unittest.TestCase):
          # -------------------------------- Fail Test 1 ------------------------------- # 
         individuals['I5'].set_fams_id(['F6']) 
         individuals['I10'].set_fams_id(['F6'])
-        families['F6'] = Family(famID='F6', husband = 'I5', wife = 'I10', marriage_date = None, divorce_date = None, children = [])
+        families['F6'] = Family(fam_id='F6', husband = 'I5', wife = 'I10', marriage_date = None, divorce_date = None, children = [])
         for fam_id in families:
             try:
                 self.assertTrue(us20.aunts_and_uncles(family = fam_id, individuals=individuals, famalies=families))   

@@ -15,7 +15,7 @@ def no_bigamy(fams: List[str], individuals: List[Dict[str, Individual]], familie
         families (dict): dict of families {famID: []}
 
     Returns:
-        bool: True if no_bigamy else False
+        bool: True if exception not raised
     """
     if len(fams) <= 1:
         return True

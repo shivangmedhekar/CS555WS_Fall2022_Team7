@@ -7,14 +7,14 @@ def less_then_150_years_old(age: int) -> bool:
     and current date should be less than 150 years after birth for all living people
 
     Args:
-        age (int): _description_
+        age (int): The age of individual
 
     Raises:
-        ValueError: _description_
-        Exception: _description_
+        ValueError: If age is not of type int
+        Exception: If age is greater then or equal to 150
 
     Returns:
-        bool: _description_
+        bool: True if exceptions not raised
     """
 
     if not age:

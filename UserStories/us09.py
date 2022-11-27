@@ -9,16 +9,16 @@ def child_birth_before_parents_death(child_birth_date: datetime.date, father_dea
     Child should be born before death of mother and before 9 months after death of father
 
     Args:
-        child_birth_date (datetime.date): _description_
-        father_death_date (datetime.date): _description_
-        mother_death_date (datetime.date): _description_
+        child_birth_date (datetime.date): Birth date of child from Individual Class
+        father_death_date (datetime.date): Death date of father from Individual Class
+        mother_death_date (datetime.date): Death date of mother from Individual Class
 
     Raises:
-        Exception: _description_
-        Exception: _description_
+        Exception: If father_death_date is 9 months after child_birth_date
+        Exception: if mother_death_date is before child_birth_date
 
     Returns:
-        bool: _description_
+        bool: True if exception not raised
     """
 
     if not father_death_date and not mother_death_date:

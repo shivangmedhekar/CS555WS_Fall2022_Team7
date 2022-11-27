@@ -1,10 +1,10 @@
 import unittest
 
 from UserStories.us14 import multiple_births_less_then_equal_to_5
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US14"
 type = "FAMILY" 

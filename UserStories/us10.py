@@ -9,15 +9,15 @@ def marriage_after_14(husb_birth_date: datetime.date, wife_birth_date: datetime.
     marriage should occur after 14 years
 
     Args:
-        husb_birth_date (datetime.date): _description_
-        wife_birth_date (datetime.date): _description_
-        marriage_date (datetime.date): _description_
+        husb_birth_date (datetime.date): Birth date of husband from Individual Class
+        wife_birth_date (datetime.date): Birth date of wife from Individual Class
+        marriage_date (datetime.date): Marriage Date of husband and wife from Family Class
 
     Raises:
-        Exception: _description_
+        Exception: If any of the spouses are not 14 years old during marriage
 
     Returns:
-        bool: _description_
+        bool: True if exception not raised
     """
     wife_marriage_age = difference_in_dates(start_date = wife_birth_date, end_date = marriage_date, unit = "years")
     husb_marriage_age = difference_in_dates(start_date = husb_birth_date, end_date = marriage_date, unit = "years")
