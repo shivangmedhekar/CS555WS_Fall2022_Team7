@@ -1,7 +1,6 @@
 # ---------------------------------------------------------------------------- #
 #                               US 11: No Bigamy                               #
 # ---------------------------------------------------------------------------- #
-
 from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
@@ -16,7 +15,7 @@ def no_bigamy(fams: List[str], individuals: List[Dict[str, Individual]], familie
         families (dict): dict of families {famID: []}
 
     Returns:
-        bool: True if no_bigamy else False
+        bool: True if exception not raised
     """
     if len(fams) <= 1:
         return True
@@ -33,7 +32,7 @@ def no_bigamy(fams: List[str], individuals: List[Dict[str, Individual]], familie
         husband_is_alive = individuals[husb_id].is_alive()
         wife_is_alive = individuals[wife_id].is_alive()
         
-        if (marriage_date and divorce_date) and (husband_is_alive and wife_is_alive):
+        if (marriage_date and not divorce_date) and (husband_is_alive and wife_is_alive):
             marriage_count += 1
         
         if marriage_count > 1:

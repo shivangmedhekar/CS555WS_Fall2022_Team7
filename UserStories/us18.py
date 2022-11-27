@@ -1,21 +1,25 @@
+# ---------------------------------------------------------------------------- #
+#                       US 18: Siblings should not marry                       #
+# ---------------------------------------------------------------------------- #
 from Classes.Individual import Individual
 from Classes.Family import Family
 from typing import List, Dict
 
 def siblings_should_not_marry(siblings: List[str], individuals: List[Dict[str, Individual]],
                               famalies: List[Dict[str, Family]]) -> bool:
-    """_summary_
+    """
+    Siblings should not marry one another
 
     Args:
-        siblings (List[str]): _description_
-        individuals (List[Dict[str, Individual]]): _description_
-        famalies (List[Dict[str, Family]]): _description_
+        siblings (List[str]): List of ID's of childrens from Family Class
+        individuals (List[Dict[str, Individual]]): Is a list of class objects Individual
+        famalies (List[Dict[str, Family]]): Is a list of class objects Family
 
     Raises:
-        Exception: _description_
+        Exception: If siblings are married to each other
 
     Returns:
-        bool: _description_
+        bool: True if exception not raised
     """
     
     if not len(siblings):

@@ -45,3 +45,40 @@ def get_tables(individuals: list[Individual], families: list[Family]) -> tuple[P
         families_table.add_row([fam_id, marriage_date, divorce_date, husb_id, husb_name, wife_id, wife_name, children])
 
     return individuals_table, families_table
+
+
+def print_table(individuals_table: PrettyTable, families_table: PrettyTable):
+    """
+    summary prints and writes to output.txt the PrettyTables of individual and famalilies and 
+    also logs or errors and successful runs of user stories.
+
+    Args:
+
+        param1 (PrettyTable): individuals_table: Is a list of class objects Individual
+        param2 (PrettyTable): families_table: Is a list of class objects Family
+        param3 (list): logs of error and successful runs of user stories
+    
+    Returns: 
+        This functions doesn't return
+    """
+
+    print("Indiviudals")
+    print(individuals_table)
+
+    print("Families")
+    print(families_table)
+
+    print("\nUser Story Logs")
+
+    with open("output.txt", "w") as output_file:
+        
+        output_file.write("Indiviudals\n")
+        output_file.write(str(individuals_table))
+
+        output_file.write("\nFamilies\n")
+        output_file.write(str(families_table))
+        
+        output_file.write("\n\nUser Stories Logs\n")
+        # for log in logs:
+        #     output_file.write(log)
+        #     output_file.write("\n")

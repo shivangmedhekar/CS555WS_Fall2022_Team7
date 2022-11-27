@@ -1,10 +1,10 @@
 import unittest
 
 from UserStories.us05 import marriage_before_death
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US05"
 type = "INDIVIDUAL"

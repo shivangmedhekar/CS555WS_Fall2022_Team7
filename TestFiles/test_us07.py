@@ -1,10 +1,10 @@
 import unittest
 
 from UserStories.us07 import less_then_150_years_old
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
 USER_STORY = "US07"
 type = "INDIVIDUAL"

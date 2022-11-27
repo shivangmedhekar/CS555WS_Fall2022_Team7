@@ -1,28 +1,26 @@
 # ---------------------------------------------------------------------------- #
 #                            US 13: Siblings spacing                           #
 # ---------------------------------------------------------------------------- #
+from typing import List
+from datetime import datetime
 
-from dateutil.relativedelta import relativedelta
-from Classes.Individual import Individual
-from typing import List, Dict
 from UserStories.helper_functions import difference_in_dates
-def siblings_spacing(siblings: List[str], individuals: List[Dict[str, Individual]]) -> bool:
+def siblings_spacing(birth_dates: List[datetime.date]) -> bool:
     """
     Birth dates of siblings should be more than 8 months apart or less than 2 days apart
     (twins may be born one day apart, e.g. 11:59 PM and 12:02 AM the following calendar day)
 
     Args:
-        siblings (List[str]): _description_
-        individuals (List[Dict[str, Individual]]): _description_
+        siblings (List[str]): List of IDs from children of Family class
+        individuals (List[Dict[str, Individual]]): Is a list of class objects Individual
 
     Returns:
-        bool: _description_
+        bool: True if exception not raised
     """
     
-    if len(siblings) <= 1:
+    if len(birth_dates) <= 1:
         return True
-
-    birth_dates = [individuals[child_id].get_birth_date() for child_id in siblings]
+    
     birth_dates.sort()
 
     for i in range(len(birth_dates) - 1):
@@ -30,6 +28,6 @@ def siblings_spacing(siblings: List[str], individuals: List[Dict[str, Individual
         no_of_months_difference = difference_in_dates(start_date = birth_dates[i], end_date = birth_dates[i + 1], unit = "months")
         
         if no_of_months_difference < 8 and no_of_days_difference > 2:
-            return False
+            raise Exception('Birth dates of siblings should be more than 8 months apart or less than 2 days apart')
         
     return True

@@ -1,22 +1,22 @@
 # ---------------------------------------------------------------------------- #
 #                         US 05: Marriage before death                         #
 # ---------------------------------------------------------------------------- #
-
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
+
 def marriage_before_death(marriage_date: datetime.date, death_date:datetime.date) -> bool:
     """
     Marriage should occur before death of either spouse
 
     Args:
-        marriageDate (_type_): _description_
-        deathDate (_type_): _description_
+        marriage_date (datetime.date): Marriage date from Family class
+        death_date (datetime.date): Death date of Individual from Individual class
 
     Raises:
-        Exception: _description_
+        Exception: If death_date is before marriage_date
 
     Returns:
-        _type_: _description_
+        bool: True if exception not raised
     """
     # if the marriage date & death date are empty/null
     if not marriage_date or not death_date:

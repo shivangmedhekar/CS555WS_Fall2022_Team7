@@ -1,18 +1,21 @@
-from Parser.parser import parse
-from Summary.tables import get_tables
+from ProjectUtils.parser import parse
+from ProjectUtils.tables import get_tables, print_table
+from ProjectUtils.config import GEDCOM_FILE
 
-from Summary.summary import summary
 from TestFiles.run_unittest import run_all_tests
-
-from config import GEDCOM_FILE
 
 def main():
     
+    # Parses through the GEDCOM File and returns two dictionaries
     individuals, families = parse(GEDCOM_FILE)
     
+    # Generates Pretty Tables from the dictionaries
     individuals_table, families_table = get_tables(individuals, families)
     
-    summary(individuals_table, families_table)
+    # Prints the Table on console and output.txt file
+    print_table(individuals_table, families_table)
+    
+    # Runs all UserStories on individuals and famalies dictionaries
     run_all_tests()
 
 if __name__=="__main__":

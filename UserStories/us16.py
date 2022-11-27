@@ -1,26 +1,27 @@
 # ---------------------------------------------------------------------------- #
 #                            US 16: Male last names                            #
 # ---------------------------------------------------------------------------- #
+from typing import List
 
-from Classes.Family import Family
-from Classes.Individual import Individual
-from typing import List, Dict
+def male_last_names(family_last_name: str, male_child_names: List[str]) -> bool:
+    """
+    All male members of a family should have the same last name
 
-def male_last_names(fam_id, individuals: List[Dict[str, Individual]], families: List[Dict[str, Family]]) -> bool:
+    Args:
+        family_last_name (str): last name of father from Individual Class
+        male_child_names (List[str]): List of names of all children
 
-    husb_id = families[fam_id].get_husband()
-    husb_name = individuals[husb_id].get_name()
-    family_last_name = husb_name.split()[1]
+    Raises:
+        Exception: If all children don't have same last name
 
-    children = families[fam_id].get_children()
-
-    for child_id in children:
-        if(individuals[child_id].get_gender() == 'M'):
-            child_name = individuals[child_id].get_name()
-            male_child_last_name = child_name.split()[1]
-                
-            if(family_last_name != male_child_last_name):
-                raise Exception("All male members of a family don't have same last name") 
+    Returns:
+        bool: True if exception not raised
+    """
+    
+    for name in male_child_names:
+        male_child_last_name = name.split()[1]
+        if(family_last_name != male_child_last_name):
+            raise Exception(f"All male members of a family don't have same last name | Family Last Name: {family_last_name} | Error Name: {name}") 
 
     return True
 

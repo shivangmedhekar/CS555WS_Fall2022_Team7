@@ -1,13 +1,23 @@
 # ---------------------------------------------------------------------------- #
 #                           US 35: List recent births                          #
 # ---------------------------------------------------------------------------- #
-
 from Classes.Individual import Individual
 from typing import Dict
 from datetime import datetime
 from UserStories.helper_functions import difference_in_dates
 
 def list_recent_births(individuals: Dict[str, Individual]) -> Dict:
+    """
+    List all people in a GEDCOM file who were born in the last 30 days
+
+    Args:
+        individuals (Dict[str, Individual]): Is a list of class objects Individual
+
+    Returns:
+        Dict: Recent birth ID's as key and their birth date as value
+    """
+    
+    
     curr_date = datetime.now().date()
     recent_births = {}
     

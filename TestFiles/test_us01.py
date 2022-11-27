@@ -1,13 +1,13 @@
 import unittest
 
 from UserStories.us01 import dates_before_current_date
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 from write_errors import write_errors
 
-from config import GEDCOM_FILE
+from ProjectUtils.config import GEDCOM_FILE
 
-type = "INDIVIDUAL"
 USER_STORY = 'US01'
+type = "INDIVIDUAL"
 
 individuals, families = parse(GEDCOM_FILE)
 

@@ -6,7 +6,7 @@ currentdir = os.path.dirname(os.path.realpath(__file__))
 parentdir = os.path.dirname(currentdir)
 sys.path.append(parentdir)
 
-from Parser.parser import parse
+from ProjectUtils.parser import parse
 
 GEDCOM_FILE = 'GEDCOM_FILES/Stark_Family.ged'
 
