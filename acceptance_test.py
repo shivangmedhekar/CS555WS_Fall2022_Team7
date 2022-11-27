@@ -8,7 +8,7 @@ import datetime
 individuals, families = parse(GEDCOM_FILE)
 line_length = 125
 
-    
+
 # ---------------------------------------------------------------------------- #
 #                        US01: Dates before current date                       #
 # ---------------------------------------------------------------------------- #
@@ -717,16 +717,119 @@ class Test_US23(unittest.TestCase):
         individuals['I2'].set_birth_date(datetime.datetime.strptime('07/08/1940', "%m/%d/%Y").date())
         
             
+# ---------------------------------------------------------------------------- #
+#                       US 24: Unique families by spouses                      #
+# ---------------------------------------------------------------------------- #
+class Test_US24(unittest.TestCase):
+    def test_unique_families_by_spouces(self):
         
+        USER_STORY = "US24"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        try:
+            self.assertTrue(us24.unique_families_by_spouces(individuals, families))
+           
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+            
+        # -------------------------------- Fail Test 1 ------------------------------- #  
+        
+        individuals['I4'].set_name('Richard Stark')
+        individuals['I7'].set_name('Layarra Targaryen')
+        families['F2'].set_marriage_date(datetime.datetime.strptime('03/02/1960', "%m/%d/%Y").date())
+        
+        individuals['I13'].set_name('Richard Stark')
+        families['F4'].set_marriage_date(datetime.datetime.strptime('03/02/1960', "%m/%d/%Y").date())
+        
+        try:
+            self.assertTrue(us24.unique_families_by_spouces(individuals, families))
+           
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e)
+            
+        individuals['I4'].set_name('Eddard Stark')
+        individuals['I7'].set_name('Catyeln Tully')
+        families['F2'].set_marriage_date(datetime.datetime.strptime('03/03/1989', "%m/%d/%Y").date())
+        
+        individuals['I13'].set_name('Jammie Lannister')
+        families['F4'].set_marriage_date(datetime.datetime.strptime('08/04/1960', "%m/%d/%Y").date())
+            
+        
+# ---------------------------------------------------------------------------- #
+#                     US 25: Unique first names in families                    #
+# ---------------------------------------------------------------------------- #
+class Test_US25(unittest.TestCase):
+    def test_unique_first_names_in_families(self):
+        
+        USER_STORY = "US25"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        for fam_id in families:
+            
+            children = families[fam_id].get_children()
+            try:
+                self.assertTrue(us25.unique_first_names_in_families(children, individuals))
+            
+            except Exception as e:
+                write_errors(user_story = USER_STORY, error = e) 
+                
+        # -------------------------------- Fail Test 1 ------------------------------- #  
+        
+        for fam_id in families:
+            
+            individuals['I4'].set_name('Brandon Stark')
+            individuals['I4'].set_birth_date(datetime.datetime.strptime('04/06/1961', "%m/%d/%Y").date())
+            
+            children = families[fam_id].get_children()
+            try:
+                self.assertTrue(us25.unique_first_names_in_families(children, individuals))
+            
+            except Exception as e:
+                write_errors(user_story = USER_STORY, error = e) 
+                
+            individuals['I4'].set_name('Eddard Stark')
+            individuals['I4'].set_birth_date(datetime.datetime.strptime('06/06/1964', "%m/%d/%Y").date())
+        
+        
+# ---------------------------------------------------------------------------- #
+#                           US 35: List recent births                          #
+# ---------------------------------------------------------------------------- #
+class Test_US35(unittest.TestCase):
+    def test_list_recent_births(self):
+        
+        USER_STORY = "US35"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        try:
+            self.assertIsInstance(us35.list_recent_births(individuals), dict)
+            print("No Error for US35")
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e) 
+            
+            
+# ---------------------------------------------------------------------------- #
+#                           US 36: List recent deaths                          #
+# ---------------------------------------------------------------------------- #
+class Test_US36(unittest.TestCase):
+    def test_list_recent_births(self):
+        
+        USER_STORY = "US36"
+        print('⸻' * line_length)
+        
+        # -------------------------------- Pass Test 1 ------------------------------- #  
+        try:
+            self.assertIsInstance(us36.recent_death(individuals), dict)
+            print("No Error for US36")
+            
+        except Exception as e:
+            write_errors(user_story = USER_STORY, error = e) 
             
         
         
-        
-        
-        
-        
-        
-
 def write_errors(user_story, error, id=''):
     
     error_msg = create_error_msg(user_story, error, id)
