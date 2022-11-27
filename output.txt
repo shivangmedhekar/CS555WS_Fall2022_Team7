@@ -36,3 +36,6 @@ User Stories Logs
 
 Recent Deaths: 
 I12: 2022-10-31
+
+Recent Deaths: 
+I12: 2022-10-31

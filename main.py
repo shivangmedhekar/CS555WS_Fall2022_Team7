@@ -9,9 +9,7 @@ from config import GEDCOM_FILE
 def main():
     
     individuals, families = parse(GEDCOM_FILE)
-    
     individuals_table, families_table = get_tables(individuals, families)
-    
     summary(individuals_table, families_table)
     run_all_tests()
 

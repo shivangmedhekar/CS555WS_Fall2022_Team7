@@ -33,3 +33,7 @@ class Family:
 
     def get_family(self):
         return self.__husband, self.__wife, self.__marriage_date, self.__divorce_date, self.__children
+    
+    
+    def set_marriage_date(self, marriage_date):
+        self.__marriage_date = marriage_date
