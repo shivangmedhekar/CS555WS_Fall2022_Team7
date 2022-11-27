@@ -15,12 +15,7 @@ individuals, families = parse(GEDCOM_FILE)
 class Test_unique_families_by_spouces(unittest.TestCase):
     def test_unique_families_by_spouces(self):
 
-        famIDs = []
-        
-        for fam_id in families:
-            famIDs.append(fam_id)
-
         try:
-            self.assertTrue(unique_families_by_spouces(famIDs, families))
+            self.assertTrue(unique_families_by_spouces(individuals, families))
         except Exception as e:
             write_errors(type = type, user_story = USER_STORY, id = 'fam_id', error = e)
