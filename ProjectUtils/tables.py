@@ -49,7 +49,7 @@ def get_tables(individuals: list[Individual], families: list[Family]) -> tuple[P
 
 def print_table(individuals_table: PrettyTable, families_table: PrettyTable):
     """
-    summary prints and writes to output.txt the PrettyTables of individual and famalilies and 
+    It prints to console and output.txt the PrettyTables of individual and famalilies and 
     also logs or errors and successful runs of user stories.
 
     Args:
@@ -57,9 +57,6 @@ def print_table(individuals_table: PrettyTable, families_table: PrettyTable):
         param1 (PrettyTable): individuals_table: Is a list of class objects Individual
         param2 (PrettyTable): families_table: Is a list of class objects Family
         param3 (list): logs of error and successful runs of user stories
-    
-    Returns: 
-        This functions doesn't return
     """
 
     print("Indiviudals")
